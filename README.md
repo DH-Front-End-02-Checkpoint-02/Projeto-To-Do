@@ -5,7 +5,6 @@
 ### Integrantes:
 
 - [Aline Pollis](https://github.com/lipollis)
-- [Esther Pimentel](https://github.com/EstherPimentel)
 - [Felipe Moreira](https://github.com/moreirafelipe)
 - [Fernando Carvalho](https://github.com/Fer96carvalho)
 - [Paula Augusto](https://github.com/pcamposaugusto)
