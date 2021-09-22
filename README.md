@@ -9,6 +9,7 @@
 - [Fernando Carvalho](https://github.com/Fer96carvalho)
 - [Paula Augusto](https://github.com/pcamposaugusto)
 - [Pedro Brito](https://github.com/pedroisb)
+- [Esther Pimentel](https://github.com/EstherPimentel)
 
 
 ### Objetivo
