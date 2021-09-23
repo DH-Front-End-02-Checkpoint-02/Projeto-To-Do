@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F0E5CF;
+    color: #2f38a2;
+}
+
+
+/* NAVBAR */
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(180deg, #e59ec9 0, #e99dc2 8.33%, #ed9cbb 16.67%, #f09cb3 25%, #f19cac 33.33%, #f29ca4 41.67%, #f29d9d 50%, #f19e96 58.33%, #efa090 66.67%, #eca28a 75%, #e9a484 83.33%, #e4a680 91.67%, #e0a97c 100%);
+}
+
+.minha-lista {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.home {
+    text-decoration: none;
+    color: #2f38a2;
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+.home:hover {
+    color: #dee0fc;
+}
+
+.icone-user {
+    width: 2.4rem;
+}
+
+/* The dropdown container */
+.dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+/* Dropdown button */
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: .5rem; 
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+  
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F0E5CF;
+    border-radius: .3rem;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+  }
+  
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: #2f38a2;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #7f87f6;
+}
+
+
+/* FORM CRIAÇAO DA TAREFA */
+
+.form-tarefa {
+    background-color: white;
+    margin: 3.2rem;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-tarefa > h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* textarea {
+    resize: none;
+} */
+
+.form-tarefa input {
+    border: none;
+    background-color: #ebc3bb;
+    padding: .5rem;
+    border-radius: .2rem;
+}
+
+.form-tarefa textarea {
+    border: none;
+    background-color: #ebc3bb;
+    padding: .5rem;
+    border-radius: .2rem;
+}
+
+#add-tarefa {
+    border: none;
+    background-color: #545ba7;
+    padding: .5rem;
+    border-radius: .2rem;
+}
+
