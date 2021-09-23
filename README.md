@@ -7,7 +7,7 @@
 - [Aline Pollis](https://github.com/lipollis)
 - [Felipe Moreira](https://github.com/moreirafelipe)
 - [Fernando Carvalho](https://github.com/Fer96carvalho)
-- [Mar Brito](https://mybrandnewlogo.com/es/generador-de-gradiente-de-color)
+- [Mar Brito](https://github.com/MarBrito)
 - [Paula Augusto](https://github.com/pcamposaugusto)
 - [Pedro Brito](https://github.com/pedroisb)
 
