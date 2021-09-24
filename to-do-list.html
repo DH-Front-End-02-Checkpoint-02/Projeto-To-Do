@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,18 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style-tarefas.css">
     <!-- GOOGLE FONTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <title>Minha to-do-list</title>
 </head>
+
 <body>
     <header>
         <!-- NAVBAR -->
         <nav>
             <div class="minha-lista">
-                <a class="home" href="#">To-do-list</a> 
+                <a class="home" href="#">To-do-list</a>
             </div>
             <div class="dropdown">
                 <button class="dropbtn"><img class="icone-user" src="./img/user.svg" alt="ícone do usuário"><i class="fa fa-caret-down"></i>
@@ -29,7 +31,7 @@
         </nav>
     </header>
     <main>
-        <div class="form-tarefa">
+        <form class="form-tarefa">
             <h1>Minha to-do List</h1>
             <label for="data-criacao">Data de criação:
                 <input type="date" id="data-criacao">
@@ -41,7 +43,9 @@
             </label>
             <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
             <button type="submit" id="add-tarefa">Adicionar tarefa</button>
-        </div>
+        </form>
+
+        <ul id="lista"></ul>
 
         <!-- Data de criação: o usuário não poderá alterar esse input, mas ele deve ser exibido.
 Data limite da tarefa: data que o usuário deseja terminar aquela tarefa.
@@ -51,6 +55,7 @@ No card da anotação deve ter um botão para excluir a anotação. Quando ele f
 Ainda no card da anotação, deverá existir um checkbox que ao ser clicado faz o texto daquela anotação ficar tachado. Tarefa concluida. -->
     </main>
 
-    <script src="./js/script-tarefas.js"></script>
+    <script src="js/script-tarefas.js"></script>
 </body>
+
 </html>
