@@ -54,8 +54,8 @@ nav{
     outline: none;
     padding: 14px 16px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
+    font-family: inherit;
+    margin: 0;
 }
   
 /* Dropdown content (hidden by default) */
@@ -89,11 +89,14 @@ nav{
 }
 
 
-/* FORM CRIAÇAO DA TAREFA */
+/* FORMULÁRIO DE CRIAÇÃO DE TAREFAS */
 
 .form-tarefa {
     background-color: white;
     margin: 3.2rem;
+    margin-top: 4rem;
+    align-self: center;
+    max-width: 25rem;
     padding: 1.5rem;
     border-radius: .5rem;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
@@ -109,28 +112,116 @@ nav{
     margin-bottom: 1.5rem;
 }
 
-/* textarea {
-    resize: none;
-} */
-
 .form-tarefa input {
     border: none;
-    background-color: #ebc3bb;
+    background-color: #edd6d2;
     padding: .5rem;
     border-radius: .2rem;
+    color: #6b705c;
+    margin-top: 1rem;
+    width: 13rem;
+}
+
+.form-tarefa input[type="text"] {
+    height: 2.5rem;
 }
 
 .form-tarefa textarea {
     border: none;
-    background-color: #ebc3bb;
+    max-width: 21.8rem;
+    height: 4rem;
+    background-color: #edd6d2;
     padding: .5rem;
     border-radius: .2rem;
+    resize: none;
+    color: #6b705c;
 }
 
-#add-tarefa {
+.add-tarefa {
     border: none;
-    background-color: #545ba7;
+    background-color: #8488ac;
     padding: .5rem;
+    width: 9rem;
     border-radius: .2rem;
+    align-self: center;
+    color: #dee0fc;
+    font-size: 1rem;
+    font-weight: 600;
 }
+
+
+/* CARDS DE TAREFAS */
+
+ul {
+    margin: 2rem;
+    padding: 0;
+    max-width: 28rem;
+    list-style-type: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+ul li:hover {
+    background: #ddd;
+}
+
+ul li.checked {
+    background: #8488ac;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    background-color: #8488ac;
+    color: white;
+}
+
+.form-tarefa:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.conteudo-tarefa {
+    background-color: #edd6d2;
+}
+
+
+/* MEDIA QUERIES */
 

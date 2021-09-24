@@ -17,7 +17,7 @@
         <!-- NAVBAR -->
         <nav>
             <div class="minha-lista">
-                <a class="home" href="#">To-do-list</a> 
+                <a class="home" href="#">To-do list</a> 
             </div>
             <div class="dropdown">
                 <button class="dropbtn"><img class="icone-user" src="./img/user.svg" alt="ícone do usuário"><i class="fa fa-caret-down"></i>
@@ -29,19 +29,50 @@
         </nav>
     </header>
     <main>
+        <!-- FORMULÁRIO DE CRIAÇÃO DE TAREFAS -->
         <div class="form-tarefa">
             <h1>Minha to-do List</h1>
             <label for="data-criacao">Data de criação:
-                <input type="date" id="data-criacao">
+                <input type="date" id="data-criacao" class="inputs">
             </label>
             <label for="data-limite">Data limite:
-                <input type="date" id="data-limite">
+                <input type="date" id="data-limite" class="inputs">
+            </label>
+            <label for="nome-tarefa">Tarefa:
+                <input type="text" id="nome-tarefa" class="inputs">
             </label>
             <label for="descricao">Descrição:
             </label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
-            <button type="submit" id="add-tarefa">Adicionar tarefa</button>
+            <textarea class="inputs" name="descricao" id="descricao" cols="30" rows="10"></textarea>
+            <button type="submit" class="add-tarefa">Adicionar tarefa</button>
         </div>
+        <!-- CARDS DE TAREFAS -->
+        <ul id="tarefas">
+            <li>Tarefa</li>
+                <div class="conteudo-tarefa">
+                    <p>Lorem ipsum...</p>
+                </div>
+            <li class="checked">Tarefa</li>
+                <div class="conteudo-tarefa">
+                    <p>Lorem ipsum...</p>
+                </div>
+            <li>Tarefa 3</li>
+                <div class="conteudo-tarefa">
+                    <p>Lorem ipsum...</p>
+                </div>
+            <li>Tarefa 4</li>
+                <div class="conteudo-tarefa">
+                    <p>Lorem ipsum...</p>
+                </div>
+            <li>Tarefa 5</li>
+                <div class="conteudo-tarefa">
+                    <p>Lorem ipsum...</p>
+                </div>
+            <li>Tarefa 6</li>
+            <div class="conteudo-tarefa">
+                <p>Lorem ipsum...</p>
+            </div>
+          </ul>
 
         <!-- Data de criação: o usuário não poderá alterar esse input, mas ele deve ser exibido.
 Data limite da tarefa: data que o usuário deseja terminar aquela tarefa.
