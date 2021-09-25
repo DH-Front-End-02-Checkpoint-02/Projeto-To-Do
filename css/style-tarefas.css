@@ -143,6 +143,12 @@ ul {
   border-radius: 0.2rem;
 }
 
+/*Pedro: edições para assemelhar ao texto do input data-limite*/
+#data-criacao {
+  color: #000000;
+  font-size: 13.33333px;
+}
+
 .form-tarefa textarea {
   border: none;
   background-color: #ebc3bb;

@@ -38,11 +38,20 @@ fetch('https://jsonplaceholder.typicode.com/todos')
 //-----------------------------------------------------------------------//
 //Validações (Pedro)
 
-//Data de criação de tarefa - não é uma validação propriamente dita. Data deverá sempre ser a data presente
-const dataCriacao = document.getElementById("data-criacao");
 
-dataCriacao.insertAdjacentText("afterbegin", new Date().toLocaleDateString('pt-BR'));
+// 1) Data de criação de tarefa (não é uma validação propriamente dita): Data deverá sempre ser a data presente
+
+const dataHoje = new Date().toLocaleDateString('pt-BR');
+
+const $dataCriacao = document.getElementById("data-criacao");
+
+$dataCriacao.insertAdjacentText("afterbegin", dataHoje);
 
 
+// 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
 
-//Date.now();
+dataMin = new Date().toISOString().slice(0, 10);
+
+const $dataLimite = document.getElementById("data-limite");
+
+$dataLimite.setAttribute("min", dataMin);
