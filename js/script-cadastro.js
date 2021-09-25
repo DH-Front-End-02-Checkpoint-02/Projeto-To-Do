@@ -14,8 +14,8 @@ trocaDiv()
 // FUNÇÃO PARA VALIDAR O CAMPO NOME
 function validar_nome() {
   let nome = document.getElementById("nome").value;
-  let padrao = /[^a-zà-ú]/gi; //uma palavra
-  // let padrao = /[^A-Z][a-z]+\s[A-Z][a-z]+/gi;   //duas palavras
+  // let padrao = /[^a-zà-ú]/gi; //uma palavra
+  let padrao = /[^A-Z][a-z]+\s[A-Z][a-z]+/gi;   //duas palavras
   let valida_nome = nome.match(padrao);
   if ((nome.length <= 10) ||
     (nome == "") ||
