@@ -33,3 +33,16 @@ fetch('https://jsonplaceholder.typicode.com/todos')
     json.map(data => {tarefas.push(data)});
     tarefas.forEach(tarefa => {gerarCard(tarefa.id, tarefa.title, tarefa.completed)});
   })
+
+
+//-----------------------------------------------------------------------//
+//Validações (Pedro)
+
+//Data de criação de tarefa - não é uma validação propriamente dita. Data deverá sempre ser a data presente
+const dataCriacao = document.getElementById("data-criacao");
+
+dataCriacao.insertAdjacentText("afterbegin", new Date().toLocaleDateString('pt-BR'));
+
+
+
+//Date.now();

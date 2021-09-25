@@ -33,8 +33,10 @@
     <main>
         <form class="form-tarefa">
             <h1>Minha to-do List</h1>
-            <label for="data-criacao">Data de criação:
-                <input type="date" id="data-criacao">
+            <!--Pedro: Removi input, substituindo-o por div com data local, no formato dd/mm/aaaa, conforme pode ser verificado no script. Usuário não irá passar data pelo input, mas a encontrará sempre setada na data atual. Alerações no CSS conforme necessidade para manter estilo encontrado-->
+            <label>Data de criação: <!--for="data-criacao"-->
+                <div id ="data-criacao"></div>
+                <!-- <input type="date" id="data-criacao"> -->
             </label>
             <label for="data-limite">Data limite:
                 <input type="date" id="data-limite">

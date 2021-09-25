@@ -135,7 +135,8 @@ ul {
     resize: none;
 } */
 
-.form-tarefa input {
+.form-tarefa input,
+#data-criacao {
   border: none;
   background-color: #ebc3bb;
   padding: 0.5rem;
