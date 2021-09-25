@@ -1,62 +1,66 @@
-// FUNÇÃO PARA VALIDAR O CAMPO NOME
-function validar_nome() {
-    let nome = document.getElementById("nome").value;
-    let padrao = /[^a-zà-ú]/gi;              //uma palavra
-    // let padrao = /[^A-Z][a-z]+\s[A-Z][a-z]+/gi;   //duas palavras
-    let valida_nome = nome.match(padrao);
-    if ((nome.length <= 10)
-        || (nome == "")
-        || (valida_nome || !nome)
-    ) {
-        alert("IMPORTANTE! Campo 'Nome' preenchido de forma incorreta.");
-        return false;
-    } else {
-        return true;
-    }
-}
 
-// FUNÇÃO PARA VALIDAR O CAMPO SENHA
-function validar_senha() {
-    let senha = document.getElementById("senha").value;
-    let senhaRepetir = document.getElementById("senhaRepetir").value;
-    if ((senha != senhaRepetir)
-        || (senha == "") || (senhaRepetir == "")) {
-        alert("IMPORTANTE! O campo 'Repetir senha' não corresponde com o inserido em 'Senha' ou estão vázios.");
-        return false;
-    } else {
-        return true;
-    }
-}
+// VARIAVEIS PARA VISUALIZAÇÃO DA DIV
+let login2 = document.querySelector( 'div.login');
+let cadastro2 = document.querySelector('div.cadastro')
 
-// FUNÇÃO PARA VERIFICAR O EMAIL 
-function validar_email(field) {
-    let usuario = field.value.substring(0, field.value.indexOf("@"));
-    let dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+// FUNÇÃOO PARA TROCAR A DIV VISUALIZADA
+function trocaDiv1(){
+  document.getElementById('link2').addEventListener('click',()=>{
+    login2.style.display = 'none';
+    cadastro2.style.display = 'block';
+  })
+};
+  
+trocaDiv1()
 
-    if ((usuario.length >= 1) &&
-        (dominio.length >= 3) &&
-        (usuario.search("@") == -1) &&
-        (dominio.search("@") == -1) &&
-        (usuario.search(" ") == -1) &&
-        (dominio.search(" ") == -1) &&
-        (dominio.search(".") != -1) &&
-        (dominio.indexOf(".") >= 1) &&
-        (dominio.lastIndexOf(".") < dominio.length - 1)
-    ) {
-        return true;
-    }
-    else {
-        alert("IMPORTANTE! Campo E-mail preenchido de forma incorreta.")
-        return false;
-    }
-}
+// FAZENDO A VERIFICAÇÃO DE LOGIN 
+document.getElementById("botaoo").addEventListener('click', function entrar() {
+  let email = document.getElementById('email#')
+  let emailLabel = document.querySelector('#emailLabel')
 
-// FUNÇÃO PARA VALIDAR TODOS OS CAMPOS DO LOGIN
-function validar_tudo() {
-    if ((validar_nome() == true)
-        && (validar_senha() == true)
-        && (validar_email() == true)) {
-        alert("Formulário enviado!");
-        return true;
+  let senha = document.getElementById('senha#')
+  let senhaLabel = document.querySelector('#senhaLabel')
+
+  let listaUser = []
+
+  let userValid = {
+    nome: '',
+    email: '',
+    senha: ''
+  }
+
+  listaUser = JSON.parse(localStorage.getItem('listaUser'))
+
+  listaUser.forEach((item) => {
+    if (email.value == item.email && senha.value == item.senha) {
+
+      userValid = {
+        nome: item.nome,
+        email: item.email,
+        senha: item.senha
+      }
+
     }
-}
+  })
+
+  if (email.value == userValid.email && senha.value == userValid.senha) {
+    document.getElementById('form').reset()
+    // window.location.href = 'https:  //Local de redirecionamento apos confirmação de login
+
+    let mathRandom = Math.random().toString(16).substr(2)
+    let token = mathRandom + mathRandom
+
+    localStorage.setItem('token', token)
+    localStorage.setItem('userLogado', JSON.stringify(userValid))
+
+  } else {
+    emailLabel.setAttribute('style', 'color: red')
+    senhaLabel.setAttribute('style', 'color: red')
+    senha.setAttribute('style', 'border-color: red')
+    email.setAttribute('style', 'border-color: red')
+    document.getElementById('form').reset()
+    email.focus()
+    alert('Usuario ou senha Incorretos')
+  }
+
+})
