@@ -78,6 +78,8 @@ function validar_tudo() {
   }
 }
 
+
+
 // ADICIONANDO O EVENTO AO BOTÃO CADASTRAR
 document.querySelector('button').addEventListener('click', function cadastrar() {
   if (validar_tudo() == true) {
