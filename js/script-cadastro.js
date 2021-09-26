@@ -66,14 +66,47 @@ function validar_email() {
     return false;
   }
 }
+// FUNÇÃO PARA VERIFICAR A DISPONIBILIDADE DO EMAIL
+function verificar_Email() {
+  let email = document.getElementById('email')
+  let listaemail = []
+
+  let emailValid = {
+    nome: '',
+    email: '',
+    senha: ''
+  }
+
+  listaemail = JSON.parse(localStorage.getItem('listaUser') || '[]');
+
+  listaemail.forEach((item) => {
+    if (email.value == item.email) {
+
+      emailValid = {
+        nome: item.nome,
+        email: item.email,
+        senha: item.senha
+      }
+
+    }
+  })
+  if (email.value == emailValid.email) {
+    alert("Este email não está disponivel");
+    email.focus()
+    return false;
+  } else {
+    return true;
+  }
+}
 
 
 // FUNÇÃO PARA VALIDAR TODOS OS CAMPOS DO CADASTRO
 function validar_tudo() {
   if ((validar_nome() == true) &&
     (validar_senha() == true) &&
-    (validar_email() == true)) {
-    alert("Formulário enviado!");
+    (validar_email() == true) &&
+    (verificar_Email()) == true) {
+    alert("Conta criada com sucesso!");
     return true;
   }
 }
@@ -95,7 +128,7 @@ document.querySelector('button').addEventListener('click', function cadastrar() 
     setTimeout(() => {
       login.style.display = 'block';
       cadastro.style.display = 'none';
-    }, 3000);
+    }, 2000);
 
 
   } else { }
