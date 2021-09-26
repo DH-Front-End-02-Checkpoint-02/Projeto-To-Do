@@ -5,7 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="./css/login.css">
+  <!-- GOOGLE FONTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
   <title>Login</title>
 </head>
 
@@ -15,7 +22,7 @@
       <form>
 
         <h2> Cadastro de Conta </h2>
-      
+
         <div class="label-float">
           <input type="text" id="nome" autocomplete="disabled" onblur="validar_nome()">
           <label id="labelNome" for="nome">Nome</label>
@@ -30,7 +37,7 @@
           <input type="password" id="confirmSenha">
           <label id="labelConfirmSenha" for="confirmSenha">Repetir Senha</label>
         </div>
-    
+
         <div class="label-float">
           <input type="email" id="email" onblur="validar_email(form.email)">
           <label id="labelEmail" for="email">E-mail</label>
@@ -60,24 +67,24 @@
         <input type='email' id='email#'>
         <label id='emailLabel' for='usuario'>Email</label>
       </div>
-  
+
       <div class='label-float'>
         <input type='password' id='senha#'>
         <label id='senhaLabel' for='senha'>Senha</label>
       </div>
     </form>
-      <div class='botao'>
-        <button id="botaoo">Login</button>
-      </div>
-  
-      <div class='botao'>
-        <hr>
-      </div>
-  
-      <p> Não tem uma conta? <a id="link2" href="#"> CADASTRE-SE </a>
-      </p>
-    
-      </div>
+    <div class='botao'>
+      <button id="botaoo">Login</button>
+    </div>
+
+    <div class='botao'>
+      <hr>
+    </div>
+
+    <p> Não tem uma conta? <a id="link2" href="#"> CADASTRE-SE </a>
+    </p>
+
+  </div>
   </div>
   <script src="./js/script-cadastro.js"></script>
   <script src="./js/script-login.js"></script>

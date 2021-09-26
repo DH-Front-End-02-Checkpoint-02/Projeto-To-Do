@@ -1,12 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Karla", sans-serif;
   font-size: 10px;
 }
 
 body {
-  background-image: url(https://image.freepik.com/vetores-gratis/fundo-aquarela_87374-57.jpg);
+  /* background-image: url(https://image.freepik.com/vetores-gratis/fundo-aquarela_87374-57.jpg); */
+  background-color: #f0e5cf;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +24,8 @@ body {
 }
 
 .cadastro {
-  background-image: url(https://i.pinimg.com/originals/09/5b/e7/095be79d4c559d799fe249544afabcb5.jpg);
+  /* background-image: url(https://i.pinimg.com/originals/09/5b/e7/095be79d4c559d799fe249544afabcb5.jpg); */
+  background-color: white;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,7 +40,8 @@ body {
 
 .login {
  
-  background-image: url(https://i.pinimg.com/originals/09/5b/e7/095be79d4c559d799fe249544afabcb5.jpg);
+  /* background-image: url(https://i.pinimg.com/originals/09/5b/e7/095be79d4c559d799fe249544afabcb5.jpg); */
+  background-color: white;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,7 +59,9 @@ h2{
   font-size: 4rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  color: #070707b4
+  color: #2f38a2;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
 #H2{
@@ -64,7 +69,9 @@ h2{
   font-size: 4rem;
   margin-top: 3rem;
   margin-bottom: 7.5rem;
-  color: #070707b4
+  color: #2f38a2;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
 .label-float{
@@ -90,7 +97,7 @@ h2{
   font-size: 2rem;
   transition: all .3s ease-out;
   border-radius: 0;
-  
+  background-color: #edd6d2;
 }
 
 
@@ -106,8 +113,6 @@ h2{
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 1.1rem;
-  transition: all .3s ease-out;
 }
 
 .label-float input:focus + label,
@@ -190,24 +195,3 @@ a{
 a:hover{
   color: #272262;
 }
-
-/* Mensagens de validação */
-
-#msgErro{
-  text-align: center;
-  color: #ff0000;
-  background-color: #ffbbbb;
-  padding: 10px;
-  border-radius: 4px;
-  display: none;
-}
-
-#msgSuccesso{
-  text-align: center;
-  color: #00bb00;
-  background-color: #bbffbe;
-  padding: 10px;
-  border-radius: 4px;
-  display: none;
-}
-
