@@ -47,8 +47,7 @@ function gerarCard(id, titulo, situacao) {
   lista.appendChild(itemLista);
 }
 
-const btnAddTarefa = document.getElementById("add-tarefa");
-btnAddTarefa.onclick = gerarCard();
+
 
 //pegando informações
 fetch('https://jsonplaceholder.typicode.com/todos')
@@ -87,12 +86,7 @@ function calcDataMin (arrData){
 
 const $dataLimite = document.getElementById("data-limite");
 
-$dataLimite.setAttribute("min", calcDataMin (arrData));
-
-// $dataLimite.style.cssText=`
-//   text-align:
-//   color:
-// `
+$dataLimite.setAttribute("min", calcDataMin(arrData));
 
 
 // ------------------------------------ PAULA
@@ -178,12 +172,3 @@ for (i = 0; i < tarefas.length; i++) {
 //     }
 //   }
 // }
-
-
-
-
-
-
-
-
-
