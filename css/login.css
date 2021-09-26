@@ -106,8 +106,6 @@ h2{
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 1.1rem;
-  transition: all .3s ease-out;
 }
 
 .label-float input:focus + label,
