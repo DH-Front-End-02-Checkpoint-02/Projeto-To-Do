@@ -45,8 +45,9 @@ function gerarCard(id, titulo, situacao) {
                                            
   /*Adiciona tarefas consumidas na lista  */
   lista.appendChild(itemLista);
-
 }
+
+
 
 //pegando informações
 fetch('https://jsonplaceholder.typicode.com/todos')
@@ -85,8 +86,7 @@ function calcDataMin (arrData){
 
 const $dataLimite = document.getElementById("data-limite");
 
-$dataLimite.setAttribute("min", calcDataMin (arrData));
-
+$dataLimite.setAttribute("min", calcDataMin(arrData));
 
 
 // ------------------------------------ PAULA
@@ -172,12 +172,3 @@ for (i = 0; i < tarefas.length; i++) {
 //     }
 //   }
 // }
-
-
-
-
-
-
-
-
-
