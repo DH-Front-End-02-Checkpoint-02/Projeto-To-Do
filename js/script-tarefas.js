@@ -45,9 +45,8 @@ function gerarCard(id, titulo, situacao) {
                                            
   /*Adiciona tarefas consumidas na lista  */
   lista.appendChild(itemLista);
+
 }
-
-
 
 //pegando informações
 fetch('https://jsonplaceholder.typicode.com/todos')
