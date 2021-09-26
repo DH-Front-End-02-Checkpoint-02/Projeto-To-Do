@@ -36,7 +36,7 @@ fetch('https://jsonplaceholder.typicode.com/todos')
 
 
 //-----------------------------------------------------------------------//
-//Validações (Pedro)
+//Setando Datas (Pedro)
 
 
 // 1) Data de criação de tarefa (não é uma validação propriamente dita): Data deverá sempre ser a data presente
@@ -50,7 +50,7 @@ $dataCriacao.insertAdjacentText("afterbegin", dataHoje);
 
 // 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
 
-dataMin = new Date().toISOString().slice(0, 10);
+const dataMin = new Date().toISOString().slice(0, 10);
 
 const $dataLimite = document.getElementById("data-limite");
 
