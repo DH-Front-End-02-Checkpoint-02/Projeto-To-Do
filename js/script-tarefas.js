@@ -45,8 +45,10 @@ function gerarCard(id, titulo, situacao) {
                                            
   /*Adiciona tarefas consumidas na lista  */
   lista.appendChild(itemLista);
-
 }
+
+const btnAddTarefa = document.getElementById("add-tarefa");
+btnAddTarefa.onclick = gerarCard();
 
 //pegando informações
 fetch('https://jsonplaceholder.typicode.com/todos')
@@ -87,6 +89,10 @@ const $dataLimite = document.getElementById("data-limite");
 
 $dataLimite.setAttribute("min", calcDataMin (arrData));
 
+// $dataLimite.style.cssText=`
+//   text-align:
+//   color:
+// `
 
 
 // ------------------------------------ PAULA
