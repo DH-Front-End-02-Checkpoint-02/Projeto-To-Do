@@ -35,7 +35,7 @@
             <h1>Minha to-do List</h1>
             <h2 id="logado"></h2>
             <label>Data de criação: 
-                <span id ="data-criacao" class="inputs"></span>
+                <div id ="data-criacao" class="inputs"></div>
             </label>
             <label for="data-limite">Data limite:
                 <input type="date" id="data-limite" class="inputs" required>
@@ -48,22 +48,23 @@
             <textarea class="inputs" name="descricao" id="descricao" cols="30" rows="10" minlength="10" maxlength="100" required></textarea>
             <button type="submit" class="add-tarefa">Adicionar tarefa</button>
         </form>
+
+        <ul id="lista"></ul>
+
         <!-- CARDS DE TAREFAS -->
-        <ul id="lista">
+        <!-- <ul id="lista">
             <li>Tarefa</li>
                 <div class="conteudo-tarefa">
                     <p>Lorem ipsum...</p>
                     <div class="icones">
                         <input id="checked" type="checkbox">
                         <img id="delete" src="./img/remover.svg" alt="ícone para remover a tarefa">
-                    </div>
-                    
+                    </div> 
                 </div>
-            
+        </ul>     -->
 
-            <!-- <ul id="lista"></ul> -->
 
-        <!-- Data de criação: o usuário não poderá alterar esse input, mas ele deve ser exibido.
+<!-- Data de criação: o usuário não poderá alterar esse input, mas ele deve ser exibido.
 Data limite da tarefa: data que o usuário deseja terminar aquela tarefa.
 Descrição: texto da tarefa.
 Botão de submit.
