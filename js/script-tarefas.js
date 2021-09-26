@@ -32,7 +32,18 @@ sairbtn.addEventListener('click',()=>{
   window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
-/* Função para criar cards na página */
+/* Variáveis e Função para criar cards na página */
+let dataCriacao = document.getElementById("data-criacao");
+let dataLimite = document.getElementsBy
+
+function criarCards(id, tarefa, situação) {
+
+
+}
+
+
+
+/* Função para criar cards do API na página */
 function gerarCard(id, tarefa, situacao) {
 
   //Cria novo elemento list-item
@@ -48,6 +59,10 @@ function gerarCard(id, tarefa, situacao) {
       <img id="icone-lixeira" src="./img/remover.svg" alt="ícone de lixeira para excluir a tarefa">
     </div>
     `;
+
+    if("completed" === true) {
+      
+    }
 
     
     // <h3>Situação:  ${situacao}</h3>

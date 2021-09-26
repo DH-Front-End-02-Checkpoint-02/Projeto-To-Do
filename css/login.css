@@ -6,13 +6,26 @@
 }
 
 body {
-  /* background-image: url(https://image.freepik.com/vetores-gratis/fundo-aquarela_87374-57.jpg); */
-  background-color: #f0e5cf;
+  background-image: linear-gradient(
+    180deg,
+    #e59ec9 0,
+    #e99dc2 8.33%,
+    #ed9cbb 16.67%,
+    #f09cb3 25%,
+    #f19cac 33.33%,
+    #f29ca4 41.67%,
+    #f29d9d 50%,
+    #f19e96 58.33%,
+    #efa090 66.67%,
+    #eca28a 75%,
+    #e9a484 83.33%,
+    #e4a680 91.67%,
+    #e0a97c 100%
+  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  
+  background-attachment: fixed; 
 }
 
 .container {
@@ -20,38 +33,46 @@ body {
   justify-content: center;
   width: 100%;
   margin-top: 5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 .cadastro {
-  /* background-image: url(https://i.pinimg.com/originals/09/5b/e7/095be79d4c559d799fe249544afabcb5.jpg); */
   background-color: white;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 2rem;
   border: 2px solid rgb(255, 255, 255);
-  border-radius: 15px;
-  box-shadow: 3px 3px 1px 0px #00000060;
-  width: 30rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  border-radius: .5rem;
+  width: 26rem;
+  height: 50rem;
+  min-height: 300px;
+  padding-bottom: 10rem;
+}
+
+.login {
+  background-color: white;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: .5rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  width: 26rem;
   height: 50rem;
   min-height: 300px;
 }
 
-.login {
- 
-  /* background-image: url(https://i.pinimg.com/originals/09/5b/e7/095be79d4c559d799fe249544afabcb5.jpg); */
-  background-color: white;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 2rem;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 15px;
-  box-shadow: 3px 3px 1px 0px #00000060;
-  width: 30rem;
-  height: 50rem;
-  min-height: 300px;
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: #2f38a2;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
 h2{
@@ -78,12 +99,10 @@ h2{
     position: relative;
     margin: 0.5rem;
     font-size: 5rem;
-  
   }
 
 #labelNome, #labelSenha, #labelConfirmSenha, #labelEmail, #emaillabel, #senhalabel{
     font-size: 2rem;
-    color: black;
 }
 
 .label-float input{
@@ -91,23 +110,16 @@ h2{
   padding: 5px;
   display: inline-block;
   border: 0;
-  border-bottom: 2px solid black;
   background-color: transparent;
   outline: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   transition: all .3s ease-out;
   border-radius: 0;
   background-color: #edd6d2;
 }
 
-
-.label-float input:focus{
-  border-bottom: 2px solid #4038a0;
-  
-}
-
 .label-float label{
-  color: #000000;
+  color: #2f38a2;
   font-size: 2rem;
   pointer-events: none;
   position: absolute;
@@ -119,29 +131,26 @@ h2{
 .label-float input:valid + label{
   font-size: 2rem;
   margin-top: 0;
-  color: #000000
+  color: #2f38a2;
 }
 
-
 button{
-  position: absolute;
-  background-color: transparent;
-  border: 2px solid black;
-  color:black;
-  padding: 7px;
-  font-weight: bold;
+  border: none;
+  background-color: #8488ac;
+  padding: .8rem;
+  width: 12rem;
+  border-radius: .5rem;
+  align-self: center;
+  color: #dee0fc;
   font-size: 2rem;
-  margin-top: 1rem;
-  border-radius: 20px;
+  font-weight: 600;
+  margin-top: 2.5rem;
   cursor: pointer;
-  outline: none;
   transition: all .4s ease-out;
 }
 
 button:hover{
   background-color: rgb(182, 17, 127);
-  color: rgb(255, 255, 255);
-  border: 2px solid black;
 }
 
 .botao{
@@ -150,17 +159,10 @@ button:hover{
   height: 4rem;
 }
 
-#botaoo{
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  height: 4rem;
-}
-
 .redirec{
 justify-content: center;
-
 }
+
 #cdst{
   background-color: transparent;
   border: 0;
@@ -189,7 +191,6 @@ a{
   font-weight: bold;
   text-decoration: none;
   transition: all .3s ease-out;
-  
 }
 
 a:hover{
