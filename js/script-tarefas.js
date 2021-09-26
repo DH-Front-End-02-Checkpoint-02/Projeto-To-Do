@@ -1,5 +1,5 @@
 //elementos
-let adiciona = document.querySelector('.dropbtn')
+// let adiciona = document.querySelector('.dropbtn') // Onde pretende usar isso?
 let form = document.querySelector('.form-tarefa');
 let main = document.querySelector('main');
 let lista = document.getElementById('lista');
@@ -7,6 +7,29 @@ let lista = document.getElementById('lista');
 let counter = 0;
 let userId = 0;
 let tarefas = [];
+
+let sairbtn = document.querySelector('.dropbtn'); // Adicionei dropbtn nessa variável para sair.
+
+let usuarioLogado = JSON.parse(localStorage.getItem('userLogado'));
+
+let logado = document.querySelector('#logado');
+
+logado.innerHTML = `${usuarioLogado.nome}`;
+
+// FIREWALL QUE IMPEDE A ENTRADA SEM TOKEN
+if(localStorage.getItem('token') == null){
+  setTimeout(() => {
+    alert('Você precisa está logado para acessar essa pagina')
+    window.location.href = 'http://127.0.0.1:5500/index.html'; 
+  }, 5000);
+
+};
+
+// SAIR DA TO-DO LIST 
+sairbtn.addEventListener('click',()=>{
+  // localStorage.removeItem('token');
+  window.location.href = 'http://127.0.0.1:5500/index.html';
+});
 
 /* Função para criar cards na página */
 function gerarCard(id, titulo, situacao) {
