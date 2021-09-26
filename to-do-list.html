@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style-tarefas.css">
     <!-- GOOGLE FONTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <title>Minha to-do-list</title>
 </head>
+
 <body>
     <header>
         <!-- NAVBAR -->
@@ -29,50 +31,36 @@
         </nav>
     </header>
     <main>
-        <!-- FORMULÁRIO DE CRIAÇÃO DE TAREFAS -->
-        <div class="form-tarefa">
+        <form class="form-tarefa">
             <h1>Minha to-do List</h1>
-            <label for="data-criacao">Data de criação:
-                <input type="date" id="data-criacao" class="inputs">
+            <label>Data de criação: 
+                <span id ="data-criacao" class="inputs"></span>
             </label>
             <label for="data-limite">Data limite:
-                <input type="date" id="data-limite" class="inputs">
+                <input type="date" id="data-limite" class="inputs" required>
             </label>
             <label for="nome-tarefa">Tarefa:
-                <input type="text" id="nome-tarefa" class="inputs">
+                <input type="text" id="nome-tarefa" class="inputs" minlength="10" maxlength = "20" required>
             </label>
             <label for="descricao">Descrição:
             </label>
-            <textarea class="inputs" name="descricao" id="descricao" cols="30" rows="10"></textarea>
+            <textarea class="inputs" name="descricao" id="descricao" cols="30" rows="10" minlength="10" maxlength="100" required></textarea>
             <button type="submit" class="add-tarefa">Adicionar tarefa</button>
-        </div>
+        </form>
         <!-- CARDS DE TAREFAS -->
-        <ul id="tarefas">
+        <ul id="lista">
             <li>Tarefa</li>
                 <div class="conteudo-tarefa">
                     <p>Lorem ipsum...</p>
+                    <div class="icones">
+                        <input id="checked" type="checkbox">
+                        <img id="delete" src="./img/remover.svg" alt="ícone para remover a tarefa">
+                    </div>
+                    
                 </div>
-            <li class="checked">Tarefa</li>
-                <div class="conteudo-tarefa">
-                    <p>Lorem ipsum...</p>
-                </div>
-            <li>Tarefa 3</li>
-                <div class="conteudo-tarefa">
-                    <p>Lorem ipsum...</p>
-                </div>
-            <li>Tarefa 4</li>
-                <div class="conteudo-tarefa">
-                    <p>Lorem ipsum...</p>
-                </div>
-            <li>Tarefa 5</li>
-                <div class="conteudo-tarefa">
-                    <p>Lorem ipsum...</p>
-                </div>
-            <li>Tarefa 6</li>
-            <div class="conteudo-tarefa">
-                <p>Lorem ipsum...</p>
-            </div>
-          </ul>
+            
+
+            <!-- <ul id="lista"></ul> -->
 
         <!-- Data de criação: o usuário não poderá alterar esse input, mas ele deve ser exibido.
 Data limite da tarefa: data que o usuário deseja terminar aquela tarefa.
@@ -82,6 +70,7 @@ No card da anotação deve ter um botão para excluir a anotação. Quando ele f
 Ainda no card da anotação, deverá existir um checkbox que ao ser clicado faz o texto daquela anotação ficar tachado. Tarefa concluida. -->
     </main>
 
-    <script src="./js/script-tarefas.js"></script>
+    <script src="js/script-tarefas.js"></script>
 </body>
+
 </html>
