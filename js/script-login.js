@@ -13,7 +13,7 @@ function trocaDiv1(){
   
 trocaDiv1()
 
-// FAZENDO A VERIFICAÇÃO DE LOGIN 
+// FAZENDO A VERIFICAÇÃO DE CONTA E REALIZANDO O LOGIN 
 document.getElementById("botaoo").addEventListener('click', function entrar() {
   let email = document.getElementById('email#')
   let emailLabel = document.querySelector('#emailLabel')
@@ -44,16 +44,14 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
   })
 
   if (email.value == userValid.email && senha.value == userValid.senha) {
-    document.getElementById('form').reset()
-    setTimeout(() => {
-      window.location.href = 'http://127.0.0.1:5500/to-do-list.html'
-    }, 500);
-
+    
     let mathRandom = Math.random().toString(16).substr(2)
     let token = mathRandom + mathRandom;
 
     localStorage.setItem('token', token)
     localStorage.setItem('userLogado', JSON.stringify(userValid))
+    window.location.href = 'http://127.0.0.1:5500/to-do-list.html'
+    document.getElementById('form').reset()
 
   } else {
     emailLabel.setAttribute('style', 'color: red')
@@ -64,5 +62,4 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
     email.focus()
     alert('Usuario ou senha Incorretos')
   }
-
 })
