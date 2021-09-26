@@ -43,8 +43,13 @@ function gerarCard(id, tarefa, situacao) {
     <h3>ID: ${id}</h3>
     <div>Data de criação: ${$dataCriacao.textContent}</div>
     <h3>Tarefa: ${tarefa}</h3>
+    <div class="icones-cards">
+      <input type="checkbox">
+      <img id="icone-lixeira" src="./img/remover.svg" alt="ícone de lixeira para excluir a tarefa">
+    </div>
     `;
 
+    
     // <h3>Situação:  ${situacao}</h3>
     //Situação foi comentada, pois não deve ser exibida ao usuário. Referência apenas para usuário
 
