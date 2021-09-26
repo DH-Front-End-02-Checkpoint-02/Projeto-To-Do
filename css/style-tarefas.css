@@ -117,27 +117,8 @@ nav {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .5rem;
 }
-
-
-/* ul {
-  background-color: white;
-  margin: 3.2rem;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Estilo provisório das tarefas consumidas da API todos */
-/* #lista li {
-  padding: 1rem;
-  color: rgb(8, 0, 85);
-  border-bottom: solid thin rgb(8, 0, 85);
-} */
 
 .form-tarefa > h1 {
   text-transform: uppercase;
@@ -150,12 +131,12 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
+  color: #8488ac;
 }
 
-.form-tarefa input,
-#data-criacao {
+.inputs {
     border: none;
     background-color: #edd6d2;
     padding: .5rem;
@@ -163,27 +144,23 @@ nav {
     color: #6b705c;
     margin-top: 1rem;
     height: 2.5rem;
-    width: 10rem;
+    font-size: 1rem;
+    max-width: 10rem;
 }
 
 #data-criacao {
     display: inline-block;
+    padding: .5rem 1rem;
 }
 
-.form-tarefa input {
-    font-size: 1rem;
-}
-
-/*Pedro: edições para assemelhar ao texto do input data-limite*/
-#data-criacao {
-  color: #000000;
-  font-size: 13.33333px;
+#label-tarefa {
+  margin-top: 1rem;
 }
 
 .form-tarefa textarea {
     border: none;
-    max-width: 21.8rem;
-    height: 4rem;
+    max-width: 21.5rem;
+    height: 10rem;
     background-color: #edd6d2;
     padding: .5rem;
     border-radius: .2rem;
@@ -202,7 +179,13 @@ nav {
     color: #dee0fc;
     font-size: 1rem;
     font-weight: 600;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+.add-tarefa:hover {
+  color: #0a115d;
+
 }
 
 
@@ -216,6 +199,9 @@ ul {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
 
+padding: 1rem;
+  color: rgb(8, 0, 85);
+  border-bottom: solid thin rgb(8, 0, 85);
 ul li {
     cursor: pointer;
     position: relative;

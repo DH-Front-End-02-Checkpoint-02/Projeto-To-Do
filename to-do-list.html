@@ -31,6 +31,7 @@
         </nav>
     </header>
     <main>
+        <!-- FORMULÁRIO DE CRIAÇÃO DE TAREFAS -->
         <form class="form-tarefa">
             <h1>Minha to-do List</h1>
             <h2 id="logado"></h2>
@@ -40,36 +41,12 @@
             <label for="data-limite">Data limite:
                 <input type="date" id="data-limite" class="inputs" required>
             </label>
-            <label for="nome-tarefa">Tarefa:
-                <input type="text" id="nome-tarefa" class="inputs" minlength="10" maxlength = "20" required>
-            </label>
-            <label for="descricao">Descrição:
-            </label>
-            <textarea class="inputs" name="descricao" id="descricao" cols="30" rows="10" minlength="10" maxlength="100" required></textarea>
+            <label for="tarefa" id="label-tarefa">Tarefa:</label>
+                <textarea name="tarefa" id="tarefa" cols="30" rows="10" minlength="10" maxlength="100" required></textarea>
             <button type="submit" class="add-tarefa">Adicionar tarefa</button>
         </form>
-
+        <!-- CARD DE TAREFAS -->
         <ul id="lista"></ul>
-
-        <!-- CARDS DE TAREFAS -->
-        <!-- <ul id="lista">
-            <li>Tarefa</li>
-                <div class="conteudo-tarefa">
-                    <p>Lorem ipsum...</p>
-                    <div class="icones">
-                        <input id="checked" type="checkbox">
-                        <img id="delete" src="./img/remover.svg" alt="ícone para remover a tarefa">
-                    </div> 
-                </div>
-        </ul>     -->
-
-
-<!-- Data de criação: o usuário não poderá alterar esse input, mas ele deve ser exibido.
-Data limite da tarefa: data que o usuário deseja terminar aquela tarefa.
-Descrição: texto da tarefa.
-Botão de submit.
-No card da anotação deve ter um botão para excluir a anotação. Quando ele for clicado deverá ser exibido um aviso confirmando a intenção de excluir a anotação. Se o usuário confirmar a intenção de excluir, o card desta nota deve desaparecer.
-Ainda no card da anotação, deverá existir um checkbox que ao ser clicado faz o texto daquela anotação ficar tachado. Tarefa concluida. -->
     </main>
 
     <script src="js/script-tarefas.js"></script>
