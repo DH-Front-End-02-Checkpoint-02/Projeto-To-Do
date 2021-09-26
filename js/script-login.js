@@ -45,10 +45,12 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
 
   if (email.value == userValid.email && senha.value == userValid.senha) {
     document.getElementById('form').reset()
-    // window.location.href = 'https:  //Local de redirecionamento apos confirmação de login
+    setTimeout(() => {
+      window.location.href = 'http://127.0.0.1:5500/to-do-list.html'
+    }, 500);
 
     let mathRandom = Math.random().toString(16).substr(2)
-    let token = mathRandom + mathRandom
+    let token = mathRandom + mathRandom;
 
     localStorage.setItem('token', token)
     localStorage.setItem('userLogado', JSON.stringify(userValid))

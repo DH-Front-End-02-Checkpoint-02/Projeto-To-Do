@@ -130,7 +130,7 @@ document.querySelector('button').addEventListener('click', function cadastrar() 
     setTimeout(() => {
       login.style.display = 'block';
       cadastro.style.display = 'none';
-    }, 2000);
+    }, 500);
 
 
   } else { }
