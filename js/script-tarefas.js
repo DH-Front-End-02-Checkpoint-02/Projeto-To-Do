@@ -16,18 +16,19 @@ let logado = document.querySelector('#logado');
 
 logado.innerHTML = `${usuarioLogado.nome}`;
 
+// COMENTE ESSE TRECHO CASO NÃO CONSIGA PERMANECER NA PAGINA SEM ESTAR LOGADO LINHA 22 A 27
+
 // FIREWALL QUE IMPEDE A ENTRADA SEM TOKEN
 if(localStorage.getItem('token') == null){
   setTimeout(() => {
     alert('Você precisa está logado para acessar essa pagina')
     window.location.href = 'http://127.0.0.1:5500/index.html'; 
   }, 5000);
-
 };
 
 // SAIR DA TO-DO LIST 
 sairbtn.addEventListener('click',()=>{
-  // localStorage.removeItem('token');
+  localStorage.removeItem('token');
   window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
