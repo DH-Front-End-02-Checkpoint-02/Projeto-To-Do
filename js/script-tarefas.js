@@ -35,7 +35,7 @@ sairbtn.addEventListener('click',()=>{
 function gerarCard(id, titulo, situacao) {
 
   //Cria novo elemento list-item
-  let itemLista = document.createElement('LI');
+  let itemLista = document.createElement('li');
 
   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
   itemLista.innerHTML = `<h3>ID: ${id}</h3>
@@ -112,25 +112,25 @@ $dataLimite.setAttribute("min", calcDataMin(arrData));
 //   }
 // }
 
-let tarefas = document.getElementsByTagName("li");
-let i;
+// let tarefas = document.getElementsByTagName("li");
+// let i;
 
-for (i = 0; i < tarefas.length; i++) {
-    let span = document.createElement("span");
-    let btnDeMais = document.createTextNode("+");
-    span.className = "mais";
-    span.appendChild(btnDeMais);
-    tarefas[i].appendChild(span);
-    tarefas[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        let conteudoTarefa = this.nextElementSibling;
-        if (conteudoTarefa.style.display === "block") {
-            conteudoTarefa.style.display = "none";
-        } else {
-            conteudoTarefa.style.display = "block";
-        }
-    });
-}
+// for (i = 0; i < tarefas.length; i++) {
+//     let span = document.createElement("span");
+//     let btnDeMais = document.createTextNode("+");
+//     span.className = "mais";
+//     span.appendChild(btnDeMais);
+//     tarefas[i].appendChild(span);
+//     tarefas[i].addEventListener("click", function() {
+//         this.classList.toggle("active");
+//         let conteudoTarefa = this.nextElementSibling;
+//         if (conteudoTarefa.style.display === "block") {
+//             conteudoTarefa.style.display = "none";
+//         } else {
+//             conteudoTarefa.style.display = "block";
+//         }
+//     });
+// }
 
 // // Adicionar "checked" quando uma tarefa for finalizada
 
