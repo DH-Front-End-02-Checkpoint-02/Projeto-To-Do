@@ -8,7 +8,7 @@ let counter = 0;
 let userId = 0;
 let tarefas = [];
 
-let sairbtn = document.querySelector('.dropbtn'); // Adicionei dropbtn nessa variável para sair.
+let sairbtn = document.getElementById('btsair'); // Adicionei dropbtn nessa variável para sair.
 
 let usuarioLogado = JSON.parse(localStorage.getItem('userLogado'));
 
