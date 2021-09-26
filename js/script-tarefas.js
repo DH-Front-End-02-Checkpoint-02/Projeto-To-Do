@@ -33,21 +33,28 @@ sairbtn.addEventListener('click',()=>{
 });
 
 /* Função para criar cards na página */
-function gerarCard(id, titulo, situacao) {
+function gerarCard(id, tarefa, situacao) {
 
   //Cria novo elemento list-item
   let itemLista = document.createElement('li');
 
   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
-  itemLista.innerHTML = `<h3>ID: ${id}</h3>
-                            <h3>Titulo: ${titulo}</h3>
-                            <h3>Situação:  ${situacao}</h3>
-                        `;
+  itemLista.innerHTML = `
+    <h3>ID: ${id}</h3>
+    <div>Data de criação: ${$dataCriacao.textContent}</div>
+    <h3>Tarefa: ${tarefa}</h3>
+    `;
+
+    // <h3>Situação:  ${situacao}</h3>
+    //Situação foi comentada, pois não deve ser exibida ao usuário. Referência apenas para usuário
+
+    //Data criação. Ele pegará a data da criação. Todavia, estamos criando sempre "hoje", pois os cards do API são criados quando roda o script
                                            
   /*Adiciona tarefas consumidas na lista  */
   lista.appendChild(itemLista);
 
 }
+
 
 //pegando informações
 fetch('https://jsonplaceholder.typicode.com/todos')
