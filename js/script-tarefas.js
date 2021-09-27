@@ -284,6 +284,7 @@ function gerarCard() {
   cardLixeira.setAttribute("src", "./img/remover.svg");
   cardLixeira.setAttribute("alt", "ícone de lixeira para excluir a tarefa");
   cardLixeira.id="icone-lixeira";
+  cardLixeira.setAttribute('onclick', "excluirCard("+ idTarefa+")")
 
   itemLista.innerHTML += `  
     <div id="myModal" class="modal">
@@ -343,6 +344,12 @@ function criarModal() {
 
     btnSim.addEventListener("click", () => {
       itemLista.remove();
+
+      let getObj= JSON.parse(localStorage.getItem('listaUser'))
+
+      // findIndex percorre o array e compara o valor do index de cada objeto com o parâmetro passado
+      let index = getObj[0].tarefas.findIndex(tarefa => tarefa.id == id)
+
       // tarefas.splice(i, 1);
       // localStorage.setItem("itemLista", JSON.stringify(itemLista));
     });
