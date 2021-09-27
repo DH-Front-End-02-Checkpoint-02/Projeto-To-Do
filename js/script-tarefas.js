@@ -163,17 +163,6 @@ function gerarCard() {
 }
 
 
-//pegando informações
-fetch('https://jsonplaceholder.typicode.com/todos')
-  .then((response) => response.json())
-  .then((json) => {
-   
-    json.map(data => {tarefas.push(data)});
-    tarefas.forEach(tarefa => {gerarCard(tarefa.id, tarefa.title, tarefa.completed)});
-  })
-
-
-
 // Função do modal
 
 function criarModal() {

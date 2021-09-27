@@ -171,7 +171,7 @@ nav {
     font-size: 1rem;
 }
 
-.add-tarefa {
+#add-tarefa {
     border: none;
     background-color: #8488ac;
     padding: .5rem;
@@ -185,7 +185,7 @@ nav {
     cursor: pointer;
 }
 
-.add-tarefa:hover {
+#add-tarefa:hover {
   color: #0a115d;
 }
 
