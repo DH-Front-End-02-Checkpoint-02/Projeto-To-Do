@@ -42,8 +42,8 @@ sairbtn.addEventListener('click',()=>{
 //   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
 //   itemLista.innerHTML = `
 //     <h3>ID: ${id}</h3>
-//     <div>Data de criação: ${$dataCriacao.textContent}</div>
-//     <div>Data limite: ${$dataCriacao.textContent}</div>
+//     <div>Data de criação: ${dataCriacao.textContent}</div>
+//     <div>Data limite: ${dataCriacao.textContent}</div>
 //     <h3>Tarefa: ${tarefa}</h3>
 //     `;
 
@@ -77,9 +77,9 @@ sairbtn.addEventListener('click',()=>{
 
 const dataHoje = new Date();
 
-const $dataCriacao = document.getElementById("data-criacao");
+const dataCriacao = document.getElementById("data-criacao");
 
-$dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString('pt-BR'));
+dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString('pt-BR'));
 
 
 // 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
@@ -94,9 +94,9 @@ function calcDataMin (arrData){
   return dataMin;
 }
 
-const $dataLimite = document.getElementById("data-limite");
+const dataLimite = document.getElementById("data-limite");
 
-$dataLimite.setAttribute("min", calcDataMin(arrData));
+dataLimite.setAttribute("min", calcDataMin(arrData));
 
 
 //----------------------------------------------------------------//
@@ -104,10 +104,10 @@ $dataLimite.setAttribute("min", calcDataMin(arrData));
 
 let cardDataLimite;
 
-$dataLimite.onchange = () => {
-  let diaLimite = $dataLimite.value.slice(8,10);
-  let mesLimite =$dataLimite.value.slice(5,7);
-  let anoLimite =$dataLimite.value.slice(0,4);
+dataLimite.onchange = () => {
+  let diaLimite = dataLimite.value.slice(8,10);
+  let mesLimite = dataLimite.value.slice(5,7);
+  let anoLimite = dataLimite.value.slice(0,4);
   cardDataLimite = diaLimite+"/"+mesLimite+"/"+anoLimite;
   return cardDataLimite
 }
@@ -116,14 +116,15 @@ $dataLimite.onchange = () => {
 //----------------------------------------------------------------//
 //func add tarefas
 
-let $txtTarefa = document.getElementById("txtTarefa");
-let $btnAddTarefa = document.getElementById("add-tarefa");
+let txtTarefa = document.getElementById("txtTarefa");
+let btnAddTarefa = document.getElementById("add-tarefa");
 
 
 //preventDefault() -> elimina comportamento padrão do submit, como recarregar a página e exigir validações de campo estabelecidas via HTML
 //deve ser removido. sugiro optar por onsubmit em lugar de onclick quando a parte de localstorage estiver pronta
 //manter preventDefault() apenas para teste
-$btnAddTarefa.onclick = evt => {
+
+btnAddTarefa.onclick = evt => {
   evt.preventDefault();
   gerarCard();
 }
@@ -134,16 +135,34 @@ function gerarCard() {
   //Cria novo elemento list-item
   let itemLista = document.createElement('li');
 
-  //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
-  itemLista.innerHTML = `
-    <h3>ID: SETAR A PARTIR DE LOCALSTORAGE!</h3> 
-    <h3>Criada em: ${$dataCriacao.textContent}</h3> 
-    <h3>Prazo: ${cardDataLimite}</h3> 
-    <h3>Tarefa: ${$txtTarefa.value}</h3> 
-    <div class="icones-cards">
-      <input type="checkbox">
-      <img id="icone-lixeira" src="./img/remover.svg" alt="ícone de lixeira para excluir a tarefa">
-    </div>
+  let cardID = document.createElement("h3");
+  let cardDataCriacao = document.createElement("h3");
+  let cardPrazo = document.createElement("h3");
+  let cardTxtTarefa = document.createElement("h3");
+
+  cardID.insertAdjacentText("afterbegin", "ID: setar através do localStorage");
+  cardDataCriacao.insertAdjacentText("afterbegin", "Criado em: " + dataCriacao.textContent);
+  cardPrazo.insertAdjacentText("afterbegin", "Prazo: " + cardDataLimite);
+  cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa: " + txtTarefa.value);
+
+  let cardDiv = document.createElement("div");
+  cardDiv.classList.add("icones-cards");
+
+  let cardCheckbox = document.createElement("input");
+  cardCheckbox.setAttribute("type", "checkbox");
+  cardCheckbox.id="cardCheckbox";
+  cardCheckbox.style.cssText=`
+    outline: none;
+    margin-top: .1rem;
+    width: 1rem;
+  `
+
+  let cardLixeira = document.createElement("img");
+  cardLixeira.setAttribute("src", "./img/remover.svg");
+  cardLixeira.setAttribute("alt", "ícone de lixeira para excluir a tarefa");
+  cardLixeira.id="icone-lixeira";
+
+  itemLista.innerHTML += `  
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -155,9 +174,18 @@ function gerarCard() {
     </div>
     `;
 
-                                           
-  /*Adiciona tarefas consumidas na lista  */
+  cardDiv.appendChild(cardCheckbox);
+  cardDiv.appendChild(cardLixeira);
+  itemLista.appendChild(cardID);
+  itemLista.appendChild(cardDataCriacao);
+  itemLista.appendChild(cardPrazo);
+  itemLista.appendChild(cardTxtTarefa);
+  itemLista.appendChild(cardDiv);
   lista.appendChild(itemLista);
+
+  cardCheckbox.onclick = () => {
+    itemLista.classList.toggle("checked");
+  }
 
   criarModal();
 }
