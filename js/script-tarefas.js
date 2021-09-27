@@ -350,14 +350,17 @@ function criarModal() {
       // findIndex percorre o array e compara o valor do index de cada objeto com o parâmetro passado
       let index = getObj[0].tarefas.findIndex(tarefa => tarefa.id == id)
 
-      if(getObj[0].tarefas.length > 1) {
+/*       if(getObj[0].tarefas.length > 1) { */
+          idTarefa = index.id
           getObj[0].tarefas.splice(index, 1)
-      } else {
+/*       }  */
+      
+      /* else {
           getObj[0].tarefas[0].id = null;
-          getObj[0].tarefas[0].titulo = null;
+          getObj[0].tarefas[0].dtCriacao = null;
           getObj[0].tarefas[0].imagem = null;
           getObj[0].tarefas[0].comentario = null;
-      }
+      } */
 
       // tarefas.splice(i, 1);
       // localStorage.setItem("itemLista", JSON.stringify(itemLista));
