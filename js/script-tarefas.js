@@ -285,7 +285,7 @@ function gerarCard() {
   cardLixeira.setAttribute("src", "./img/remover.svg");
   cardLixeira.setAttribute("alt", "ícone de lixeira para excluir a tarefa");
   cardLixeira.id="icone-lixeira";
-  cardLixeira.setAttribute('onclick', "excluirCard("+ idTarefa+")")
+  cardLixeira.setAttribute('onclick', "modal("+ idTarefa+")")
 
   itemLista.innerHTML += `  
     <div id="myModal" class="modal">
@@ -324,8 +324,10 @@ const excluirCard = id => {
 
   // findIndex percorre o array e compara o valor do index de cada objeto com o parâmetro passado
   let index = getObj[0].tarefas.findIndex(tarefa => tarefa.id == id)
+/* 
+  idTarefa = index.indice
+  console.log(idTarefa) */
 
-  idTarefa = index.id
   getObj[0].tarefas.splice(index, 1)
 
   // retorna o novo array para o localstorage
@@ -335,7 +337,7 @@ const excluirCard = id => {
 
 // Função do modal
 
-function criarModal() {
+function criarModal(id) {
 
   let lixeiras = document.querySelectorAll("#icone-lixeira")
   let modals = document.querySelectorAll(".modal");
@@ -359,6 +361,7 @@ function criarModal() {
 
     btnSim.addEventListener("click", () => {
       itemLista.remove();
+      excluirCard(id);
       // tarefas.splice(i, 1);
       // localStorage.setItem("itemLista", JSON.stringify(itemLista));
     });
