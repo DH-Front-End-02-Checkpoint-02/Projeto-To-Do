@@ -136,14 +136,22 @@ function gerarCard() {
   let itemLista = document.createElement('li');
 
   let cardID = document.createElement("h3");
-  let cardDataCriacao = document.createElement("h3");
-  let cardPrazo = document.createElement("h3");
-  let cardTxtTarefa = document.createElement("h3");
+  let cardCriacaoTitulo = document.createElement("h3");
+  let cardPrazoTitulo = document.createElement("h3");
+  let cardTarefaTitulo = document.createElement("h3");
 
   cardID.insertAdjacentText("afterbegin", "ID: setar através do localStorage");
-  cardDataCriacao.insertAdjacentText("afterbegin", "Criado em: " + dataCriacao.textContent);
-  cardPrazo.insertAdjacentText("afterbegin", "Prazo: " + cardDataLimite);
-  cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa: " + txtTarefa.value);
+  cardCriacaoTitulo.insertAdjacentText("afterbegin", "Criado em:");
+  cardPrazoTitulo.insertAdjacentText("afterbegin", "Prazo:");
+  cardTarefaTitulo.insertAdjacentText("afterbegin", "Tarefa:");
+
+  let cardCriacaoTxt = document.createElement("p");
+  let cardPrazoTxt = document.createElement("p");
+  let cardTarefaTxt = document.createElement("p");
+
+  cardCriacaoTxt.insertAdjacentText("afterbegin", dataCriacao.textContent);
+  cardPrazoTxt.insertAdjacentText("afterbegin", cardDataLimite);
+  cardTarefaTxt.insertAdjacentText("afterbegin", txtTarefa.value);  
 
   let cardDiv = document.createElement("div");
   cardDiv.classList.add("icones-cards");
@@ -177,9 +185,12 @@ function gerarCard() {
   cardDiv.appendChild(cardCheckbox);
   cardDiv.appendChild(cardLixeira);
   itemLista.appendChild(cardID);
-  itemLista.appendChild(cardDataCriacao);
-  itemLista.appendChild(cardPrazo);
-  itemLista.appendChild(cardTxtTarefa);
+  itemLista.appendChild(cardCriacaoTitulo);
+  itemLista.appendChild(cardCriacaoTxt);
+  itemLista.appendChild(cardPrazoTitulo);
+  itemLista.appendChild(cardPrazoTxt);
+  itemLista.appendChild(cardTarefaTitulo);
+  itemLista.appendChild(cardTarefaTxt);
   itemLista.appendChild(cardDiv);
   lista.appendChild(itemLista);
 

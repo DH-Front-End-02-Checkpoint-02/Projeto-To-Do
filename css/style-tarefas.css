@@ -169,7 +169,7 @@ main {
 .form-tarefa textarea {
     border: none;
     max-width: 22rem;
-    height: 10rem;
+    height: 5rem;
     background-color: #edd6d2;
     padding: .5rem;
     border-radius: .2rem;
