@@ -32,18 +32,48 @@ sairbtn.addEventListener('click',()=>{
   window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
+//----------------------------------------------------------------//
+//func para capturar data-limite escolhida pelo usuário
 
-/* Função para criar cards do API na página */
-function gerarCard(id, tarefa, situacao) {
+let cardDataLimite;
+
+$dataLimite.onchange = () => {
+  let diaLimite = $dataLimite.value.slice(8,10);
+  let mesLimite =$dataLimite.value.slice(5,7);
+  let anoLimite =$dataLimite.value.slice(0,4);
+  cardDataLimite = diaLimite+"/"+mesLimite+"/"+anoLimite;
+  return cardDataLimite
+}
+
+
+//----------------------------------------------------------------//
+//func add tarefas
+
+let $txtTarefa = document.getElementById("txtTarefa");
+let $btnAddTarefa = document.getElementById("add-tarefa");
+
+
+//preventDefault() -> elimina comportamento padrão do submit, como recarregar a página e exigir validações de campo estabelecidas via HTML
+//deve ser removido. sugiro optar por onsubmit em lugar de onclick quando a parte de localstorage estiver pronta
+//manter preventDefault() apenas para teste
+$btnAddTarefa.onclick = evt => {
+  evt.preventDefault();
+  gerarCard();
+}
+
+
+function gerarCard() {
 
   //Cria novo elemento list-item
   let itemLista = document.createElement('li');
 
   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
   itemLista.innerHTML = `
-    <h3>ID: ${id}</h3>
-    <div>Data de criação: ${$dataCriacao.textContent}</div>
-    <h3>Tarefa: ${tarefa}</h3>
+    <h3>ID: SETAR A PARTIR DE LOCALSTORAGE!</h3> 
+    <h3>Criação: ${$dataCriacao.textContent}</h3> 
+    <h3>Limite : ${cardDataLimite}</h3> 
+    <h3>Tarefa: ${$txtTarefa.value}</h3> 
+
     <div class="icones-cards">
       <input type="checkbox">
       <img id="icone-lixeira" src="./img/remover.svg" alt="ícone de lixeira para excluir a tarefa">
@@ -64,7 +94,6 @@ function gerarCard(id, tarefa, situacao) {
   lista.appendChild(itemLista);
 
   criarModal();
-
 }
 
 
@@ -153,90 +182,3 @@ function calcDataMin (arrData){
 const $dataLimite = document.getElementById("data-limite");
 
 $dataLimite.setAttribute("min", calcDataMin(arrData));
-
-
-
-
-// ------------------------------------ PAULA
-
-// // Criação das Tarefas e do botão de mais
-// let tarefas = document.getElementsByTagName("li");
-// let i;
-// for (i = 0; i < tarefas.length; i++) {
-//   let span = document.createElement("span");
-//   let btnDeMais = document.createTextNode("+");
-//   span.className = "mais";
-//   span.appendChild(btnDeMais);
-//   tarefas[i].appendChild(span);
-// }
-
-
-// // Clicar no botão de mais para aparecer a descrição da tarefa
-// let mais = document.getElementsByClassName("mais");
-// let j;
-// for (j = 0; j < mais.length; j++) {
-//   mais[j].onclick = function() {
-//     let div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-
-// let tarefas = document.getElementsByTagName("li");
-// let i;
-
-// for (i = 0; i < tarefas.length; i++) {
-//     let span = document.createElement("span");
-//     let btnDeMais = document.createTextNode("+");
-//     span.className = "mais";
-//     span.appendChild(btnDeMais);
-//     tarefas[i].appendChild(span);
-//     tarefas[i].addEventListener("click", function() {
-//         this.classList.toggle("active");
-//         let conteudoTarefa = this.nextElementSibling;
-//         if (conteudoTarefa.style.display === "block") {
-//             conteudoTarefa.style.display = "none";
-//         } else {
-//             conteudoTarefa.style.display = "block";
-//         }
-//     });
-// }
-
-// // Adicionar "checked" quando uma tarefa for finalizada
-
-// let checked = document.getElementById('checked');
-// list.addEventListener('click', function(ev) {
-//   if (ev.checked === true) {
-//     tarefas.style.cssText = `
-//     text-decoration: line-through`;
-//   }
-// }, false);
-
-// // Criação de uma nova tarefa quando clicamos no botão "Adicionar tarefa"
-
-// function novaTarefa() {
-//   let li = document.createElement("li");
-//   let nomeTarefa = document.getElementById("nome-tarefa").value;
-//   let criacao = document.createTextNode(nomeTarefa);
-//   let inputs = document.getElementByClass("inputs").value;
-//   let t = document.createTextNode(inputs);
-//   li.appendChild(t);
-//   if (inputValue === '') {
-//     alert("Você deve incluir uma tarefa");
-//   } else {
-//     document.getElementById("tarefas").appendChild(li);
-//   }
-//   document.getElementById("inputs").value = "";
-
-//   let span = document.createElement("span");
-//   let btnDeMais = document.createTextNode("+");
-//   span.className = "close";
-//   span.appendChild(btnDeMais);
-//   li.appendChild(span);
-
-//   for (i = 0; i < close.length; i++) {
-//     close[i].onclick = function() {
-//       let div = this.parentElement;
-//       div.style.display = "none";
-//     }
-//   }
-// }
