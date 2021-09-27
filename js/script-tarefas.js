@@ -32,16 +32,6 @@ sairbtn.addEventListener('click',()=>{
   window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
-/* Variáveis e Função para criar cards na página */
-let dataCriacao = document.getElementById("data-criacao");
-let dataLimite = document.getElementsBy
-
-function criarCards(id, tarefa, situação) {
-
-
-}
-
-
 
 /* Função para criar cards do API na página */
 function gerarCard(id, tarefa, situacao) {
@@ -58,20 +48,22 @@ function gerarCard(id, tarefa, situacao) {
       <input type="checkbox">
       <img id="icone-lixeira" src="./img/remover.svg" alt="ícone de lixeira para excluir a tarefa">
     </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Deseja realmente excluir essa tarefa?</p>
+        <br>
+        <button id="btnSim" class="btnModal">Sim</button>
+        <button id="btnNao" class="btnModal">Não</button>
+       </div>
+    </div>
     `;
 
-    if("completed" === true) {
-      
-    }
-
-    
-    // <h3>Situação:  ${situacao}</h3>
-    //Situação foi comentada, pois não deve ser exibida ao usuário. Referência apenas para usuário
-
-    //Data criação. Ele pegará a data da criação. Todavia, estamos criando sempre "hoje", pois os cards do API são criados quando roda o script
                                            
   /*Adiciona tarefas consumidas na lista  */
   lista.appendChild(itemLista);
+
+  criarModal();
 
 }
 
@@ -85,6 +77,53 @@ fetch('https://jsonplaceholder.typicode.com/todos')
     tarefas.forEach(tarefa => {gerarCard(tarefa.id, tarefa.title, tarefa.completed)});
   })
 
+
+
+// Função do modal
+
+function criarModal() {
+
+  let lixeiras = document.querySelectorAll("#icone-lixeira")
+  let modals = document.querySelectorAll(".modal");
+  let btnsSim = document.querySelectorAll("#btnSim");
+  let spans = document.querySelectorAll(".close");
+  let btnsNao = document.querySelectorAll("#btnNao");
+  let itensLista = document.querySelectorAll("li");
+
+  for (let i = 0;i < itensLista.length;i++) {
+
+    let lixeira = lixeiras[i];
+    let btnSim = btnsSim[i];
+    let modal = modals[i];
+    let span = spans[i];
+    let btnNao = btnsNao[i];
+    let itemLista = itensLista[i];
+
+    lixeira.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
+
+    btnSim.addEventListener("click", () => {
+      itemLista.remove();
+      // tarefas.splice(i, 1);
+      // localStorage.setItem("itemLista", JSON.stringify(itemLista));
+    });
+
+    btnNao.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+    span.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+}
 
 //-----------------------------------------------------------------------//
 //Setando Datas (Pedro)
@@ -114,6 +153,8 @@ function calcDataMin (arrData){
 const $dataLimite = document.getElementById("data-limite");
 
 $dataLimite.setAttribute("min", calcDataMin(arrData));
+
+
 
 
 // ------------------------------------ PAULA
