@@ -137,8 +137,8 @@ function gerarCard() {
   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
   itemLista.innerHTML = `
     <h3>ID: SETAR A PARTIR DE LOCALSTORAGE!</h3> 
-    <h3>Criação: ${$dataCriacao.textContent}</h3> 
-    <h3>Limite : ${cardDataLimite}</h3> 
+    <h3>Criada em: ${$dataCriacao.textContent}</h3> 
+    <h3>Prazo: ${cardDataLimite}</h3> 
     <h3>Tarefa: ${$txtTarefa.value}</h3> 
     <div class="icones-cards">
       <input type="checkbox">
