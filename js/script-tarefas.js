@@ -4,6 +4,7 @@ let form = document.querySelector('.form-tarefa');
 let main = document.querySelector('main');
 let lista = document.getElementById('lista');
 
+let idTarefa = 0;
 let counter = 0;
 let userId = 0;
 let tarefas = [];
@@ -129,9 +130,124 @@ btnAddTarefa.onclick = evt => {
   gerarCard();
 }
 
+/* FELIPE - 27/09 -  Atualizando cards do usuario na tela */
+window.onload = _ => {
 
+  resgatarCards();
+
+  let getObj = JSON.parse(localStorage.getItem('listaUser'));
+
+  //Verifica se há tarefas a serem resgatadas e renderiza
+  if(getObj[0].tarefas.length != 0) {
+    idTarefa = getObj[0].tarefas[getObj[0].tarefas.length - 1].indice;
+  }
+}
+
+/*  FELIPE - 27/09 - Importando 15 primeiras tarefas da API */
+const importarTarefas = _ => {
+  //Incluindo comsumo da API todos
+  //pegando informações
+  fetch('https://jsonplaceholder.typicode.com/todos')
+  .then((response) => response.json())
+  .then((json) => {
+    json.forEach((tarefa, index) => {index < 15 ? tarefasImportadas.push(tarefa) : null;
+    });
+  });
+}
+
+/* FELIPE - 27/09 - Recuperando dados do localSorage e renderizando na tela */
+const resgatarCards = _ => {
+
+  //Atualizando localStorage com nova tarefa
+  let getObj = JSON.parse(localStorage.getItem('listaUser'));
+
+  //Verifica se há tarefas a serem resgatadas e renderiza
+  if(getObj[0].tarefas.length != 0) {
+  console.log(getObj);
+
+    getObj[0].tarefas.forEach(tarefa => {
+      let itemLista = document.createElement('li');
+
+      let cardID = document.createElement("h3");
+      let cardDataCriacao = document.createElement("h3");
+      let cardPrazo = document.createElement("h3");
+      let cardTxtTarefa = document.createElement("h3");
+
+      cardID.insertAdjacentText("afterbegin", (tarefa.id));
+      cardDataCriacao.insertAdjacentText("afterbegin", "Criado em: " + tarefa.dtCriacao);
+      cardPrazo.insertAdjacentText("afterbegin", "Prazo: " + tarefa.dtLimite);
+      cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa: " + tarefa.tarefa);
+    
+      let cardDiv = document.createElement("div");
+      cardDiv.classList.add("icones-cards");
+    
+      let cardCheckbox = document.createElement("input");
+      cardCheckbox.setAttribute("type", "checkbox");
+      cardCheckbox.id="cardCheckbox";
+      cardCheckbox.style.cssText=`
+        outline: none;
+        margin-top: .1rem;
+        width: 1rem;
+      `
+    
+      let cardLixeira = document.createElement("img");
+      cardLixeira.setAttribute("src", "./img/remover.svg");
+      cardLixeira.setAttribute("alt", "ícone de lixeira para excluir a tarefa");
+      cardLixeira.id="icone-lixeira";
+    
+      itemLista.innerHTML += `  
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Deseja realmente excluir essa tarefa?</p>
+            <br>
+            <button id="btnSim" class="btnModal">Sim</button>
+            <button id="btnNao" class="btnModal">Não</button>
+          </div>
+        </div>
+        `;
+    
+      cardDiv.appendChild(cardCheckbox);
+      cardDiv.appendChild(cardLixeira);
+      itemLista.appendChild(cardID);
+      itemLista.appendChild(cardDataCriacao);
+      itemLista.appendChild(cardPrazo);
+      itemLista.appendChild(cardTxtTarefa);
+      itemLista.appendChild(cardDiv);
+      lista.appendChild(itemLista);
+    
+      cardCheckbox.onclick = () => {
+        itemLista.classList.toggle("checked");
+      }
+    });
+  }
+  criarModal();
+}
+
+/* FELIPE - 27/09 - Função que renderiza novos cards e atualiza o LocalStoraga */
 function gerarCard() {
 
+  let tarefa = {
+    id: idTarefa+1,
+    dtCriacao: dataCriacao.textContent,
+    dtLimite: cardDataLimite,
+    tarefa: txtTarefa.value,
+    indice: idTarefa+1
+  }
+
+  idTarefa++;
+
+  //Atualizando localStorage com nova tarefa
+  let getObj = JSON.parse(localStorage.getItem('listaUser'));
+  console.log(getObj);
+
+  getObj[0].tarefas.forEach(tarefa => {
+    tarefa.indice = idTarefa;
+  });
+
+  getObj[0].tarefas.push(tarefa);
+  localStorage.setItem('listaUser', JSON.stringify(getObj));
+  
   //Cria novo elemento list-item
   let itemLista = document.createElement('li');
 
@@ -140,7 +256,7 @@ function gerarCard() {
   let cardPrazoTitulo = document.createElement("h3");
   let cardTarefaTitulo = document.createElement("h3");
 
-  cardID.insertAdjacentText("afterbegin", "ID: setar através do localStorage");
+  cardID.insertAdjacentText("afterbegin", (idTarefa));
   cardCriacaoTitulo.insertAdjacentText("afterbegin", "Criado em:");
   cardPrazoTitulo.insertAdjacentText("afterbegin", "Prazo:");
   cardTarefaTitulo.insertAdjacentText("afterbegin", "Tarefa:");
@@ -169,6 +285,7 @@ function gerarCard() {
   cardLixeira.setAttribute("src", "./img/remover.svg");
   cardLixeira.setAttribute("alt", "ícone de lixeira para excluir a tarefa");
   cardLixeira.id="icone-lixeira";
+  cardLixeira.setAttribute('onclick', "modal("+ idTarefa+")")
 
   itemLista.innerHTML += `  
     <div id="myModal" class="modal">
@@ -201,10 +318,26 @@ function gerarCard() {
   criarModal();
 }
 
+const excluirCard = id => {
+
+  let getObj= JSON.parse(localStorage.getItem('listaUser'))
+
+  // findIndex percorre o array e compara o valor do index de cada objeto com o parâmetro passado
+  let index = getObj[0].tarefas.findIndex(tarefa => tarefa.id == id)
+/* 
+  idTarefa = index.indice
+  console.log(idTarefa) */
+
+  getObj[0].tarefas.splice(index, 1)
+
+  // retorna o novo array para o localstorage
+  localStorage.setItem('listaUser', JSON.stringify(getObj))
+}
+
 
 // Função do modal
 
-function criarModal() {
+function criarModal(id) {
 
   let lixeiras = document.querySelectorAll("#icone-lixeira")
   let modals = document.querySelectorAll(".modal");
@@ -228,6 +361,7 @@ function criarModal() {
 
     btnSim.addEventListener("click", () => {
       itemLista.remove();
+      excluirCard(id);
       // tarefas.splice(i, 1);
       // localStorage.setItem("itemLista", JSON.stringify(itemLista));
     });

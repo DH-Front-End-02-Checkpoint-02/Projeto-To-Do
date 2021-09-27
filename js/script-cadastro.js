@@ -121,7 +121,8 @@ document.querySelector('button').addEventListener('click', function cadastrar() 
     listaUser.push({
       nome: nome.value,
       email: email.value,
-      senha: senha.value
+      senha: senha.value,
+      tarefas: []
     })
 
     localStorage.setItem('listaUser', JSON.stringify(listaUser));
