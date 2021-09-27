@@ -206,3 +206,30 @@ a{
 a:hover{
   color: #272262;
 }
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 481px) {
+  .cadastro {
+    width: 40rem;
+  }
+
+  .login {
+    width: 40rem;
+    /* display: flex; */
+  }
+
+  .label-float, input {
+    margin-left: 4rem;
+  }
+
+  button {
+    margin-top: 6rem;
+  }
+
+  p {
+    margin-top: 4rem;
+  }
+
+}

@@ -106,12 +106,19 @@ nav {
 
 /* FORMULÁRIO DE CRIAÇÃO DE TAREFAS */
 
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .form-tarefa {
     background-color: white;
-    margin: 3.2rem;
+    margin: 1rem;
+    max-width: 24rem;
     margin-top: 4rem;
     align-self: center;
-    max-width: 25rem;
     padding: 1.5rem;
     border-radius: .5rem;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
@@ -161,8 +168,8 @@ nav {
 
 .form-tarefa textarea {
     border: none;
-    max-width: 21.5rem;
-    height: 10rem;
+    max-width: 22rem;
+    height: 5rem;
     background-color: #edd6d2;
     padding: .5rem;
     border-radius: .2rem;
@@ -193,11 +200,10 @@ nav {
 /* CARDS DE TAREFAS */
 
 ul {
-    margin: 2rem;
+    margin: 1rem;
+    margin-top: 4rem;
     padding: 0;
-    max-width: 28rem;
     list-style-type: none;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
 
 ul li {
@@ -242,8 +248,9 @@ li {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
   }
-  
+
   .active, li:hover {
     background-color: #ccc; 
   }
@@ -272,7 +279,28 @@ input[type="checkbox"] {
     margin-top: .4rem;
 }
 
-
-
 /* MEDIA QUERIES */
+
+@media (max-width: 480px) {
+  ul {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 980px){
+  ul {
+    margin-top: 1rem;
+    width: 40rem;
+  }
+}
+
+@media (min-width: 1279px) {
+  main {
+    gap: 6rem;
+  }
+
+  ul {
+    width: 40rem;
+  }
+}
 

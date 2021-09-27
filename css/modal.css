@@ -71,3 +71,12 @@
 .btnModal:hover {
       color: #0a115d;
     }
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 1280px) {
+  .modal-content {
+    width: 35rem;
+  }
+}
