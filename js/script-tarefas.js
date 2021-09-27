@@ -221,6 +221,7 @@ const resgatarCards = _ => {
       }
     });
   }
+  criarModal();
 }
 
 /* FELIPE - 27/09 - Função que renderiza novos cards e atualiza o LocalStoraga */
@@ -317,6 +318,20 @@ function gerarCard() {
   criarModal();
 }
 
+const excluirCard = id => {
+
+  let getObj= JSON.parse(localStorage.getItem('listaUser'))
+
+  // findIndex percorre o array e compara o valor do index de cada objeto com o parâmetro passado
+  let index = getObj[0].tarefas.findIndex(tarefa => tarefa.id == id)
+
+  idTarefa = index.id
+  getObj[0].tarefas.splice(index, 1)
+
+  // retorna o novo array para o localstorage
+  localStorage.setItem('listaUser', JSON.stringify(getObj))
+}
+
 
 // Função do modal
 
@@ -344,24 +359,6 @@ function criarModal() {
 
     btnSim.addEventListener("click", () => {
       itemLista.remove();
-
-      let getObj= JSON.parse(localStorage.getItem('listaUser'))
-
-      // findIndex percorre o array e compara o valor do index de cada objeto com o parâmetro passado
-      let index = getObj[0].tarefas.findIndex(tarefa => tarefa.id == id)
-
-/*       if(getObj[0].tarefas.length > 1) { */
-          idTarefa = index.id
-          getObj[0].tarefas.splice(index, 1)
-/*       }  */
-      
-      /* else {
-          getObj[0].tarefas[0].id = null;
-          getObj[0].tarefas[0].dtCriacao = null;
-          getObj[0].tarefas[0].imagem = null;
-          getObj[0].tarefas[0].comentario = null;
-      } */
-
       // tarefas.splice(i, 1);
       // localStorage.setItem("itemLista", JSON.stringify(itemLista));
     });
