@@ -32,6 +32,43 @@ sairbtn.addEventListener('click',()=>{
   window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
+
+// /* Função para criar cards na página */
+// function gerarCard(id, tarefa) {
+
+//   //Cria novo elemento list-item
+//   let itemLista = document.createElement('li');
+
+//   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
+//   itemLista.innerHTML = `
+//     <h3>ID: ${id}</h3>
+//     <div>Data de criação: ${$dataCriacao.textContent}</div>
+//     <div>Data limite: ${$dataCriacao.textContent}</div>
+//     <h3>Tarefa: ${tarefa}</h3>
+//     `;
+
+//     // <h3>Situação:  ${situacao}</h3>
+//     //Situação foi comentada, pois não deve ser exibida ao usuário. Referência apenas para usuário
+
+//     //Data criação. Ele pegará a data da criação. Todavia, estamos criando sempre "hoje", pois os cards do API são criados quando roda o script
+                                           
+//   /*Adiciona tarefas consumidas na lista  */
+//   lista.appendChild(itemLista);
+
+// }
+
+// //buscar limitar o número de cards de API apresentados?
+
+// //pegando informações
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then((response) => response.json())
+//   .then((json) => {
+    
+//     json.map(data => {tarefas.push(data)});
+//     tarefas.forEach(tarefa => {gerarCard(tarefa.id, tarefa.title, tarefa.completed)});
+//   })
+
+
 //----------------------------------------------------------------//
 //func para capturar data-limite escolhida pelo usuário
 
@@ -73,7 +110,6 @@ function gerarCard() {
     <h3>Criação: ${$dataCriacao.textContent}</h3> 
     <h3>Limite : ${cardDataLimite}</h3> 
     <h3>Tarefa: ${$txtTarefa.value}</h3> 
-
     <div class="icones-cards">
       <input type="checkbox">
       <img id="icone-lixeira" src="./img/remover.svg" alt="ícone de lixeira para excluir a tarefa">
