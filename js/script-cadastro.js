@@ -111,10 +111,14 @@ function validar_tudo() {
   }
 }
 
+/*  FELIPE - 27/09 - Importando 15 primeiras tarefas da API */
+let importarTarefas = _ => {
 
+}
 
 // ADICIONANDO O EVENTO AO BOTÃO CADASTRAR
 document.querySelector('button').addEventListener('click', function cadastrar() {
+  
   if (validar_tudo() == true) {
     let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
 
