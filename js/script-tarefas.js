@@ -4,7 +4,7 @@ let sairbtn = document.getElementById('btsair');
 
 sairbtn.addEventListener('click',()=>{
   localStorage.removeItem('token');
-  window.location.href = './index.html';
+  window.location.href = 'https://github.com/DH-Front-End-02-Checkpoint-02/Projeto-To-Do/blob/main/index.html';
 });
 
 //-----------------------------------------------------------------------//
@@ -21,7 +21,7 @@ logado.innerHTML = `${usuarioLogado.nome}`;
 if(localStorage.getItem('token') == null){
   setTimeout(() => {
     alert('Você precisa está logado para acessar essa pagina')
-    window.location.href = './index.html'; 
+    window.location.href = 'https://github.com/DH-Front-End-02-Checkpoint-02/Projeto-To-Do/blob/main/index.html'; 
   }, 5000);
 };
 
@@ -85,13 +85,13 @@ dataLimite.setAttribute("min", calcDataMin(arrData)); */
 
 let cardDataLimite;
 
-/* dataLimite.onchange = () => {
+  dataLimite.onchange = () => {
   let diaLimite = dataLimite.value.slice(8,10);
   let mesLimite = dataLimite.value.slice(5,7);
   let anoLimite = dataLimite.value.slice(0,4);
   cardDataLimite = diaLimite+"/"+mesLimite+"/"+anoLimite;
-  return cardDataLimite
-} */
+  return cardDataLimite;
+}
 
 //-----------------------------------------------------------------------//
 //func add tarefas
@@ -287,23 +287,15 @@ function gerarCard() {
         let itemLista = document.createElement('li');
 
         let cardID = document.createElement("h3");
-        let cardCriacaoTitulo = document.createElement("h3");
-        let cardPrazoTitulo = document.createElement("h3");
-        let cardTarefaTitulo = document.createElement("h3");
+        let cardDataCriacao = document.createElement("h3");
+        let cardPrazo = document.createElement("h3");
+        let cardTxtTarefa = document.createElement("h3");
     
         cardID.insertAdjacentText("afterbegin", (idTarefa));
-        cardCriacaoTitulo.insertAdjacentText("afterbegin", "Criado em:");
-        cardPrazoTitulo.insertAdjacentText("afterbegin", "Prazo:");
-        cardTarefaTitulo.insertAdjacentText("afterbegin", "Tarefa:");
-    
-        let cardCriacaoTxt = document.createElement("p");
-        let cardPrazoTxt = document.createElement("p");
-        let cardTarefaTxt = document.createElement("p");
-    
-        cardCriacaoTxt.insertAdjacentText("afterbegin", dataCriacao.textContent);
-        cardPrazoTxt.insertAdjacentText("afterbegin", cardDataLimite);
-        cardTarefaTxt.insertAdjacentText("afterbegin", txtTarefa.value);  
-    
+        cardDataCriacao.insertAdjacentText("afterbegin", "Criado em:" + dataCriacao.textContent);
+        cardPrazo.insertAdjacentText("afterbegin", "Prazo:" + cardDataLimite);
+        cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa:" + txtTarefa.value);
+       
         let cardDiv = document.createElement("div");
         cardDiv.classList.add("icones-cards");
     
@@ -337,12 +329,9 @@ function gerarCard() {
         cardDiv.appendChild(cardCheckbox);
         cardDiv.appendChild(cardLixeira);
         itemLista.appendChild(cardID);
-        itemLista.appendChild(cardCriacaoTitulo);
-        itemLista.appendChild(cardCriacaoTxt);
-        itemLista.appendChild(cardPrazoTitulo);
-        itemLista.appendChild(cardPrazoTxt);
-        itemLista.appendChild(cardTarefaTitulo);
-        itemLista.appendChild(cardTarefaTxt);
+        itemLista.appendChild(cardDataCriacao);
+        itemLista.appendChild(cardPrazo);
+        itemLista.appendChild(cardTxtTarefa);
         itemLista.appendChild(cardDiv);
         lista.appendChild(itemLista);
     

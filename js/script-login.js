@@ -59,7 +59,7 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
     
         localStorage.setItem('token', token)
         localStorage.setItem('userLogado', JSON.stringify(userValid))
-        window.location.href = './to-do-list.html'
+        window.location.href = 'https://github.com/DH-Front-End-02-Checkpoint-02/Projeto-To-Do/blob/main/to-do-list.html'
         document.getElementById('form').reset()
     
       } else {
