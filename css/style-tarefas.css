@@ -282,7 +282,7 @@ input[type="checkbox"] {
 .loading {
   width: 100%;
   height: 100%;
-  background-color: #f0e5cf;
+  background-color: #F09BA4;
   position: absolute;
   top: 0;
   left: 0;
@@ -310,21 +310,24 @@ input[type="checkbox"] {
   width: 100%;
   height: 100%;
   background: white;
-  background-image: linear-gradient(90deg, orange 0%, black 100%);
+  background-image: linear-gradient(
+    180deg,
+    #F09BA4 0, #2f38a2 100%
+  );
   animation: spin 5s infinite linear;
 }
 
 .spinner:after {
   width: 90%;
   height: 90%;
-  background-color: #151515;
+  background-color: #dee0fc;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .porcent {
-  color: #999;
+  color: #121641;
   font-size: 25px;
   font-weight: 400;
   z-index: 1;
