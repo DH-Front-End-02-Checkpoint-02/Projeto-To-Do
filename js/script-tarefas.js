@@ -125,7 +125,7 @@ let btnAddTarefa = document.getElementById("add-tarefa");
 //deve ser removido. sugiro optar por onsubmit em lugar de onclick quando a parte de localstorage estiver pronta
 //manter preventDefault() apenas para teste
 
-btnAddTarefa.onclick = evt => {
+btnAddTarefa.onclick = (evt) => {
   evt.preventDefault();
   gerarCard();
 }
