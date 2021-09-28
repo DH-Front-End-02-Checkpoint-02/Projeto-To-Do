@@ -112,6 +112,32 @@ formTarefa.onsubmit = (evt) => {
   gerarCard();
 }
 
+
+//Incluindo comsumo da API todos
+//pegando informações
+fetch('https://jsonplaceholder.typicode.com/todos')
+.then((response) => response.json())
+.then((json) => {
+  let getObj = JSON.parse(localStorage.getItem('listaUser'));
+
+  if(getObj[0].tarefas.length == 0) {
+
+    json.forEach((tarefa, index) => {
+
+      if (index < 15) {
+        getObj[0].tarefas.push({id: tarefa.id, dtCriacao: dataCriacao.textContent, dtLimite: dtLimite, tarefa: tarefa.title, situacao: tarefa.completed, indice: tarefa.id});
+        idTarefa++;
+        
+        getObj[0].tarefas.forEach(tarefa => {
+          tarefa.indice = idTarefa;
+        });
+      }
+      })
+      localStorage.setItem('listaUser', JSON.stringify(getObj));
+  }
+});
+
+
 /* FELIPE - 27/09 -  Atualizando cards do usuario na tela */
 window.onload = _ => {
   resgatarCards();
@@ -140,30 +166,6 @@ month < 10 ? month = '0'+ month : null;
 /* Definindo valor do input do calendario para a data atual */
 dtLimite = `${day}/${month}/${year}`;
 
-
-//Incluindo comsumo da API todos
-//pegando informações
-fetch('https://jsonplaceholder.typicode.com/todos')
-.then((response) => response.json())
-.then((json) => {
-  let getObj = JSON.parse(localStorage.getItem('listaUser'));
-
-  if(getObj[0].tarefas.length == 0) {
-
-    json.forEach((tarefa, index) => {
-
-      if (index < 15) {
-        getObj[0].tarefas.push({id: tarefa.id, dtCriacao: dataCriacao.textContent, dtLimite: dtLimite, tarefa: tarefa.title, situacao: tarefa.completed, indice: tarefa.id});
-        idTarefa++;
-        
-        getObj[0].tarefas.forEach(tarefa => {
-          tarefa.indice = idTarefa;
-        });
-      }
-      })
-      localStorage.setItem('listaUser', JSON.stringify(getObj));
-  }
-});
 
 /* FELIPE - 27/09 - Recuperando dados do localSorage e renderizando na tela */
 const resgatarCards = _ => {
