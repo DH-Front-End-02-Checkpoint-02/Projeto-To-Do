@@ -30,7 +30,7 @@ const dataHoje = new Date();
 
 const dataCriacao = document.getElementById("data-criacao");
 
-dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString());
+dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString("pt-BR"));
 
 
 // 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
@@ -300,7 +300,7 @@ function gerarCard() {
         let cardPrazoTxt = document.createElement("p");
         let cardTarefaTxt = document.createElement("p");
     
-        cardCriacaoTxt.insertAdjacentText("afterbegin", dataLimite);
+        cardCriacaoTxt.insertAdjacentText("afterbegin", dataCriacao.textContent);
         cardPrazoTxt.insertAdjacentText("afterbegin", cardDataLimite);
         cardTarefaTxt.insertAdjacentText("afterbegin", txtTarefa.value);  
     
