@@ -114,13 +114,13 @@ formTarefa.onsubmit = (evt) => {
 
 /* FELIPE - 27/09 -  Atualizando cards do usuario na tela */
 window.onload = _ => {
+  resgatarCards();
   let getObj = JSON.parse(localStorage.getItem('listaUser'));
   //Verifica se há tarefas a serem resgatadas e renderiza
   if(getObj[0].tarefas.at(-1).indice != null) {
     /* Atualiza indice de IDs de cards quando o ultimo card da memoria for valido*/
     idTarefa = getObj[0].tarefas.at(-1).indice;
     /* Recuperar cards da memoria se o ultimo card da memoria tiver id valido */
-    resgatarCards();
   }
 }
 
