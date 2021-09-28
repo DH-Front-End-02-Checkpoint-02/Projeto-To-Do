@@ -4,7 +4,7 @@ let sairbtn = document.getElementById('btsair');
 
 sairbtn.addEventListener('click',()=>{
   localStorage.removeItem('token');
-  window.location.href = 'http://127.0.0.1:5500/index.html';
+  window.location.href = './index.html';
 });
 
 //-----------------------------------------------------------------------//
@@ -21,7 +21,7 @@ logado.innerHTML = `${usuarioLogado.nome}`;
 if(localStorage.getItem('token') == null){
   setTimeout(() => {
     alert('Você precisa está logado para acessar essa pagina')
-    window.location.href = 'http://127.0.0.1:5500/index.html'; 
+    window.location.href = './index.html'; 
   }, 5000);
 };
 
@@ -51,7 +51,6 @@ calcDataMin(arrData)
 const dataLimite = document.getElementById("data-limite");
 
 dataLimite.setAttribute("min", dataMin);
-dataLimite.setAttribute("value", dataMin);
 
 //-----------------------------------------------------------------------//
 //Setando Datas
@@ -141,13 +140,38 @@ fetch('https://jsonplaceholder.typicode.com/todos')
 window.onload = _ => {
 
   let getObj = JSON.parse(localStorage.getItem('listaUser'));
+
+  //Incluindo comsumo da API todos
+  //pegando informações
+  fetch('https://jsonplaceholder.typicode.com/todos')
+  .then((response) => response.json())
+  .then((json) => {
+    let getObj = JSON.parse(localStorage.getItem('listaUser'));
+
+    if(getObj[0].tarefas.length == 0) {
+
+      json.forEach((tarefa, index) => {
+
+        if (index < 15) {
+          getObj[0].tarefas.push({id: tarefa.id, dtCriacao: dataCriacao.textContent, dtLimite: dtLimite, tarefa: tarefa.title, situacao: tarefa.completed, indice: tarefa.id});
+          idTarefa++;
+          
+          getObj[0].tarefas.forEach(tarefa => {
+            tarefa.indice = idTarefa;
+          });
+        }
+        })
+        localStorage.setItem('listaUser', JSON.stringify(getObj));
+    }
+  });
+
   //Verifica se há tarefas a serem resgatadas e renderiza
   if(getObj[0].tarefas[getObj[0].tarefas.length - 1].indice != null) {
     /* Atualiza indice de IDs de cards quando o ultimo card da memoria for valido*/
     idTarefa = getObj[0].tarefas[getObj[0].tarefas.length - 1].indice;
     /* Recuperar cards da memoria se o ultimo card da memoria tiver id valido */
-    resgatarCards();
   }
+  resgatarCards();
 }
 
 let dtLimite;
@@ -302,9 +326,9 @@ function gerarCard() {
         let cardTxtTarefa = document.createElement("h3");
     
         cardID.insertAdjacentText("afterbegin", (idTarefa));
-        cardDataCriacao.insertAdjacentText("afterbegin", "Criado em:" + dataCriacao.textContent);
-        cardPrazo.insertAdjacentText("afterbegin", "Prazo:" + cardDataLimite);
-        cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa:" + txtTarefa.value);
+        cardDataCriacao.insertAdjacentText("afterbegin", "Criado em: " + dataCriacao.textContent);
+        cardPrazo.insertAdjacentText("afterbegin", "Prazo: " + cardDataLimite);
+        cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa: " + txtTarefa.value);
        
         let cardDiv = document.createElement("div");
         cardDiv.classList.add("icones-cards");
