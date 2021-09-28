@@ -118,6 +118,7 @@ main {
   background-color: white;
   margin: 1rem;
   max-width: 24rem;
+  height: 35rem;
   margin-top: 4rem;
   align-self: center;
   padding: 1.5rem;
@@ -128,6 +129,7 @@ main {
   gap: .5rem;
   font-size: 1.2rem;
   font-weight: 600;
+  align-self: inherit;
 }
 
 .form-tarefa > h1 {
@@ -273,15 +275,12 @@ li {
   width: 1.5rem;
 }
 
-#icone-check {
-  width: 1.5rem;
+input[type="checkbox"] {
+  cursor: pointer;
+  position: relative;
+  zoom: 1.6;
 }
 
-input[type="checkbox"] {
-  outline: 2px solid #2f38a2;
-  cursor: pointer;
-  margin-top: .4rem;
-}
 
 /* MEDIA QUERIES */
 
