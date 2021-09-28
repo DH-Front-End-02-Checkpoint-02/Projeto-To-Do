@@ -1,3 +1,19 @@
+let porcent = document.querySelector('.porcent');
+let loading = document.querySelector('.loading');
+let count = 1;
+
+let load = setInterval(animate, 25);
+
+function animate(){
+  if(count == 100){
+    //Faz ao terminar de carregar ahref
+    loading.parentElement.removeChild(loading);
+    clearInterval(load);
+  }else{
+    count++;
+    porcent.textContent = count + "%";
+  }
+}
 //-----------------------------------------------------------------------//
 // SAIR DA TO-DO LIST 
 let sairbtn = document.getElementById('btsair'); 
@@ -129,11 +145,11 @@ fetch('https://jsonplaceholder.typicode.com/todos')
         
         getObj[0].tarefas.forEach(tarefa => {
           tarefa.indice = idTarefa;
-          window.location.reload(true);
         });
       }
       })
       localStorage.setItem('listaUser', JSON.stringify(getObj));
+      window.location.reload(true);
   }
 });
 
