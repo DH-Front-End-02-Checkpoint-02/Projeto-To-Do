@@ -114,7 +114,7 @@ main {
   gap: 2rem;
 }
 
-.form-tarefa {
+#form-tarefa {
   background-color: white;
   margin: 1rem;
   max-width: 24rem;
@@ -130,7 +130,7 @@ main {
   font-weight: 600;
 }
 
-.form-tarefa > h1 {
+#form-tarefa > h1 {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   text-align: center;
@@ -167,7 +167,7 @@ main {
   margin-top: 1rem;
 }
 
-.form-tarefa textarea {
+#form-tarefa textarea {
   border: none;
   max-width: 22rem;
   height: 5rem;
@@ -255,7 +255,7 @@ li {
   background-color: #ccc; 
 }
   
-.form-tarefa:after {
+#form-tarefa:after {
   content: "";
   display: table;
   clear: both;

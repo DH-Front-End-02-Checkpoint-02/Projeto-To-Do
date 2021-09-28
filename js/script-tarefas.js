@@ -1,24 +1,29 @@
 //elementos
-// let adiciona = document.querySelector('.dropbtn') // Onde pretende usar isso?
-let form = document.querySelector('.form-tarefa');
-let main = document.querySelector('main');
-let lista = document.getElementById('lista');
 
-let idTarefa = 0;
-let counter = 0;
-let userId = 0;
-let tarefas = [];
+// let main = document.querySelector('main');
+// let lista = document.getElementById('lista');
+//Essas variáveis estão sendo utilizadas?
 
-let sairbtn = document.getElementById('btsair'); // Adicionei dropbtn nessa variável para sair.
+//-----------------------------------------------------------------------//
+// SAIR DA TO-DO LIST 
+let sairbtn = document.getElementById('btsair'); 
 
+sairbtn.addEventListener('click',()=>{
+  localStorage.removeItem('token');
+  window.location.href = 'http://127.0.0.1:5500/index.html';
+});
+
+
+//-----------------------------------------------------------------------//
+// Identifica e apresenta o nome do usuário logado no form
 let usuarioLogado = JSON.parse(localStorage.getItem('userLogado'));
 
 let logado = document.querySelector('#logado');
 
 logado.innerHTML = `${usuarioLogado.nome}`;
 
-// COMENTE ESSE TRECHO CASO NÃO CONSIGA PERMANECER NA PAGINA SEM ESTAR LOGADO LINHA 22 A 27
 
+//-----------------------------------------------------------------------//
 // FIREWALL QUE IMPEDE A ENTRADA SEM TOKEN
 if(localStorage.getItem('token') == null){
   setTimeout(() => {
@@ -27,55 +32,11 @@ if(localStorage.getItem('token') == null){
   }, 5000);
 };
 
-// SAIR DA TO-DO LIST 
-sairbtn.addEventListener('click',()=>{
-  localStorage.removeItem('token');
-  window.location.href = 'http://127.0.0.1:5500/index.html';
-});
-
-
-// /* Função para criar cards na página */
-// function gerarCard(id, tarefa) {
-
-//   //Cria novo elemento list-item
-//   let itemLista = document.createElement('li');
-
-//   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
-//   itemLista.innerHTML = `
-//     <h3>ID: ${id}</h3>
-//     <div>Data de criação: ${dataCriacao.textContent}</div>
-//     <div>Data limite: ${dataCriacao.textContent}</div>
-//     <h3>Tarefa: ${tarefa}</h3>
-//     `;
-
-//     // <h3>Situação:  ${situacao}</h3>
-//     //Situação foi comentada, pois não deve ser exibida ao usuário. Referência apenas para usuário
-
-//     //Data criação. Ele pegará a data da criação. Todavia, estamos criando sempre "hoje", pois os cards do API são criados quando roda o script
-                                           
-//   /*Adiciona tarefas consumidas na lista  */
-//   lista.appendChild(itemLista);
-
-// }
-
-// //buscar limitar o número de cards de API apresentados?
-
-// //pegando informações
-// fetch('https://jsonplaceholder.typicode.com/todos')
-//   .then((response) => response.json())
-//   .then((json) => {
-    
-//     json.map(data => {tarefas.push(data)});
-//     tarefas.forEach(tarefa => {gerarCard(tarefa.id, tarefa.title, tarefa.completed)});
-//   })
-
 
 //-----------------------------------------------------------------------//
 //Setando Datas
 
-
-// 1) Data de criação de tarefa (não é uma validação propriamente dita): Data deverá sempre ser a data presente
-
+// 1) Data de criação de tarefa: Data deverá sempre ser a data presente
 const dataHoje = new Date();
 
 const dataCriacao = document.getElementById("data-criacao");
@@ -84,7 +45,6 @@ dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString('pt-BR'
 
 
 // 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
-
 const arrData = [dataHoje.getFullYear(), dataHoje.getMonth()+1, dataHoje.getDate()];
 
 function calcDataMin (arrData){
@@ -100,7 +60,7 @@ const dataLimite = document.getElementById("data-limite");
 dataLimite.setAttribute("min", calcDataMin(arrData));
 
 
-//----------------------------------------------------------------//
+//-----------------------------------------------------------------------//
 //func para capturar data-limite escolhida pelo usuário
 
 let cardDataLimite;
@@ -114,21 +74,36 @@ dataLimite.onchange = () => {
 }
 
 
-//----------------------------------------------------------------//
+//-----------------------------------------------------------------------//
+// Validações
+//Data-limite
+//
+
+
+//Tarefa 
+//minlength="10" maxlength="100" required
+
+
+
+//-----------------------------------------------------------------------//
 //func add tarefas
 
+// let counter = 0; 
+// let userId = 0;
+// Essas variáveis estão sendo utilizadas?
+
+let idTarefa = 0;
+let tarefas = [];
+
 let txtTarefa = document.getElementById("txtTarefa");
-let btnAddTarefa = document.getElementById("add-tarefa");
 
+const formTarefa = document.getElementById("form-tarefa");
 
-//preventDefault() -> elimina comportamento padrão do submit, como recarregar a página e exigir validações de campo estabelecidas via HTML
-//deve ser removido. sugiro optar por onsubmit em lugar de onclick quando a parte de localstorage estiver pronta
-//manter preventDefault() apenas para teste
-
-btnAddTarefa.onclick = (evt) => {
+formTarefa.onsubmit = (evt) => {
   evt.preventDefault();
   gerarCard();
 }
+
 
 /* FELIPE - 27/09 -  Atualizando cards do usuario na tela */
 window.onload = _ => {
@@ -143,17 +118,6 @@ window.onload = _ => {
   }
 }
 
-/*  FELIPE - 27/09 - Importando 15 primeiras tarefas da API */
-const importarTarefas = _ => {
-  //Incluindo comsumo da API todos
-  //pegando informações
-  fetch('https://jsonplaceholder.typicode.com/todos')
-  .then((response) => response.json())
-  .then((json) => {
-    json.forEach((tarefa, index) => {index < 15 ? tarefasImportadas.push(tarefa) : null;
-    });
-  });
-}
 
 /* FELIPE - 27/09 - Recuperando dados do localSorage e renderizando na tela */
 const resgatarCards = _ => {
@@ -217,12 +181,13 @@ const resgatarCards = _ => {
       lista.appendChild(itemLista);
     
       cardCheckbox.onclick = () => {
-        itemLista.classList.toggle("checked");
+      itemLista.classList.toggle("checked");
       }
     });
   }
   criarModal();
 }
+
 
 /* FELIPE - 27/09 - Função que renderiza novos cards e atualiza o LocalStoraga */
 function gerarCard() {
@@ -381,3 +346,57 @@ function criarModal(id) {
     });
   }
 }
+
+
+
+//TRECHO A SER TRANSPORTADO PARA MODO DEMO
+//TAREFASIMPORTADAS NÃO FOI CRIADO. NECESÁRIO PARA IMPORTAR
+
+/*  FELIPE - 27/09 - Importando 15 primeiras tarefas da API */
+const importarTarefas = _ => {
+  //Incluindo consumo da API todos
+  //pegando informações
+  fetch('https://jsonplaceholder.typicode.com/todos')
+  .then((response) => response.json())
+  .then((json) => {
+    json.forEach((tarefa, index) => {index < 15 ? tarefasImportadas.push(tarefa) : null;
+    });
+  });
+}
+
+
+
+// /* Função para criar cards na página */
+// function gerarCard(id, tarefa) {
+
+//   //Cria novo elemento list-item
+//   let itemLista = document.createElement('li');
+
+//   //adiciona novo item de lista antes da posição 0, com os dados do animal conforme o contador
+//   itemLista.innerHTML = `
+//     <h3>ID: ${id}</h3>
+//     <div>Data de criação: ${dataCriacao.textContent}</div>
+//     <div>Data limite: ${dataCriacao.textContent}</div>
+//     <h3>Tarefa: ${tarefa}</h3>
+//     `;
+
+//     // <h3>Situação:  ${situacao}</h3>
+//     //Situação foi comentada, pois não deve ser exibida ao usuário. Referência apenas para usuário
+
+//     //Data criação. Ele pegará a data da criação. Todavia, estamos criando sempre "hoje", pois os cards do API são criados quando roda o script
+                                           
+//   /*Adiciona tarefas consumidas na lista  */
+//   lista.appendChild(itemLista);
+
+// }
+
+// //buscar limitar o número de cards de API apresentados?
+
+// //pegando informações
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then((response) => response.json())
+//   .then((json) => {
+    
+//     json.map(data => {tarefas.push(data)});
+//     tarefas.forEach(tarefa => {gerarCard(tarefa.id, tarefa.title, tarefa.completed)});
+//   })
