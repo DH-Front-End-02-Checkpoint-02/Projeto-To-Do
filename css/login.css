@@ -47,7 +47,7 @@ body {
   background-size: cover;
   padding: 2rem;
   border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
   border-radius: .5rem;
   width: 26rem;
   height: 45rem;
@@ -63,7 +63,7 @@ body {
   padding: 2rem;
   border: 2px solid rgb(255, 255, 255);
   border-radius: .5rem;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
   width: 26rem;
   height: 50rem;
   min-height: 300px;
