@@ -4,7 +4,7 @@ let sairbtn = document.getElementById('btsair');
 
 sairbtn.addEventListener('click',()=>{
   localStorage.removeItem('token');
-  window.location.href = 'https://github.com/DH-Front-End-02-Checkpoint-02/Projeto-To-Do/blob/main/index.html';
+  window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
 //-----------------------------------------------------------------------//
@@ -21,7 +21,7 @@ logado.innerHTML = `${usuarioLogado.nome}`;
 if(localStorage.getItem('token') == null){
   setTimeout(() => {
     alert('Você precisa está logado para acessar essa pagina')
-    window.location.href = 'https://github.com/DH-Front-End-02-Checkpoint-02/Projeto-To-Do/blob/main/index.html'; 
+    window.location.href = 'http://127.0.0.1:5500/index.html';
   }, 5000);
 };
 
