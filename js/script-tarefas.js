@@ -25,19 +25,47 @@ if(localStorage.getItem('token') == null){
   }, 5000);
 };
 
-//-----------------------------------------------------------------------//
-//Setando Datas
-
 // 1) Data de criação de tarefa: Data deverá sempre ser a data presente
 const dataHoje = new Date();
 
 const dataCriacao = document.getElementById("data-criacao");
 
-dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString('pt-BR'));
+dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString());
 
 
 // 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
 const arrData = [dataHoje.getFullYear(), dataHoje.getMonth()+1, dataHoje.getDate()];
+
+let dataMin;
+
+function calcDataMin (arrData){
+  if (arrData[1] < 10){
+    arrData[1] = "0" + arrData[1];
+  }
+  dataMin = arrData.reduce((acc, el) => acc+"-"+el);
+  return dataMin;
+}
+
+calcDataMin(arrData)
+
+const dataLimite = document.getElementById("data-limite");
+
+dataLimite.setAttribute("min", dataMin);
+dataLimite.setAttribute("value", dataMin);
+
+//-----------------------------------------------------------------------//
+//Setando Datas
+
+// 1) Data de criação de tarefa: Data deverá sempre ser a data presente
+/* const dataHoje = new Date();
+
+const dataCriacao = document.getElementById("data-criacao");
+
+dataCriacao.insertAdjacentText("afterbegin", dataHoje.toLocaleDateString('pt-BR')); */
+
+
+// 2) Data-limite da tarefa: Data deverá ser do dia presente em diante. Nunca dias pretéritos
+/* const arrData = [dataHoje.getFullYear(), dataHoje.getMonth()+1, dataHoje.getDate()];
 
 function calcDataMin (arrData){
   if (arrData[1] < 10){
@@ -49,7 +77,7 @@ function calcDataMin (arrData){
 
 const dataLimite = document.getElementById("data-limite");
 
-dataLimite.setAttribute("min", calcDataMin(arrData));
+dataLimite.setAttribute("min", calcDataMin(arrData)); */
 
 
 //-----------------------------------------------------------------------//
@@ -126,7 +154,7 @@ fetch('https://jsonplaceholder.typicode.com/todos')
     json.forEach((tarefa, index) => {
 
       if (index < 15) {
-        getObj[0].tarefas.push({id: tarefa.id, dtCriacao: dataCriacao.textContent, dtLimite: dtLimite, tarefa: tarefa.title, indice: tarefa.id});
+        getObj[0].tarefas.push({id: tarefa.id, dtCriacao: dataCriacao.textContent, dtLimite: dtLimite, tarefa: tarefa.title, situacao: tarefa.completed, indice: tarefa.id});
         idTarefa++;
         
         getObj[0].tarefas.forEach(tarefa => {
@@ -150,7 +178,7 @@ const resgatarCards = _ => {
 
     getObj[0].tarefas.forEach(tarefa => {
       let itemLista = document.createElement('li');
-
+      
       let cardID = document.createElement("h3");
       let cardDataCriacao = document.createElement("h3");
       let cardPrazo = document.createElement("h3");
@@ -199,7 +227,14 @@ const resgatarCards = _ => {
       itemLista.appendChild(cardTxtTarefa);
       itemLista.appendChild(cardDiv);
       lista.appendChild(itemLista);
-    
+
+      //Disabilita cards com tarefas já feitas
+      if(tarefa.situacao == true) {
+        itemLista.classList.toggle("checked");
+        cardCheckbox.disabled=true;
+      }
+
+      //Desabilita cards marcados
       cardCheckbox.onclick = () => {
       itemLista.classList.toggle("checked");
       }
@@ -265,7 +300,7 @@ function gerarCard() {
         let cardPrazoTxt = document.createElement("p");
         let cardTarefaTxt = document.createElement("p");
     
-        cardCriacaoTxt.insertAdjacentText("afterbegin", dataCriacao.textContent);
+        cardCriacaoTxt.insertAdjacentText("afterbegin", dataLimite);
         cardPrazoTxt.insertAdjacentText("afterbegin", cardDataLimite);
         cardTarefaTxt.insertAdjacentText("afterbegin", txtTarefa.value);  
     
