@@ -1,6 +1,6 @@
 
 // VARIAVEIS PARA VISUALIZAÇÃO DA DIV
-let login2 = document.querySelector( 'div.login');
+let login2 = document.querySelector('div.login');
 let cadastro2 = document.querySelector('div.cadastro')
 
 // FUNÇÃOO PARA TROCAR A DIV VISUALIZADA
@@ -59,7 +59,7 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
     
         localStorage.setItem('token', token)
         localStorage.setItem('userLogado', JSON.stringify(userValid))
-        window.location.href = 'https://dh-front-end-02-checkpoint-02.github.io/Projeto-To-Do/to-do-list.html'
+        window.location.href = './to-do-list.html'
         document.getElementById('form').reset()
     
       } else {

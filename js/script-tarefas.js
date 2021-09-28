@@ -51,7 +51,6 @@ calcDataMin(arrData)
 const dataLimite = document.getElementById("data-limite");
 
 dataLimite.setAttribute("min", dataMin);
-dataLimite.setAttribute("value", dataMin);
 
 //-----------------------------------------------------------------------//
 //Setando Datas
