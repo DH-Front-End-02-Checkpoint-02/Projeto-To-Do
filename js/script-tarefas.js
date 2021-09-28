@@ -129,6 +129,7 @@ fetch('https://jsonplaceholder.typicode.com/todos')
         
         getObj[0].tarefas.forEach(tarefa => {
           tarefa.indice = idTarefa;
+          window.location.reload(true);
         });
       }
       })
