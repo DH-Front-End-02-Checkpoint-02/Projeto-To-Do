@@ -33,7 +33,8 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
   listaUser = JSON.parse(localStorage.getItem('listaUser'))
 
   if(email.value == "ADMIN" && senha.value == "DEMONSTRACAO"){
-    window.location.href = 'http://127.0.0.1:5500/to-do-list-demo.html'
+    /* window.location.href = 'http://127.0.0.1:5500/to-do-list-demo.html' */
+    window.location.href = 'http://to-do-list-demo.html'
   } else {
    
     if(email.value == null || email.value == "" || senha.value == null || senha.value == ""){
