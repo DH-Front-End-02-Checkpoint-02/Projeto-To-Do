@@ -1,90 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="./css/login.css">
-  <!-- GOOGLE FONTES -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  <title>Login</title>
-</head>
-
-<body>
-  <div class='container'>
-    <div class='cadastro' style="display:none">
-      <form>
-
-        <h2>Crie sua conta</h2>
-
-        <div class="label-float">
-          <input type="text" id="nome" autocomplete="disabled" onblur="validar_nome()">
-          <label id="labelNome" for="nome">Nome</label>
+    <link rel="stylesheet" href="./css/login.css">
+    <!-- GOOGLE FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <title>Login</title>
+  </head>
+  <body>
+    <div class='container'>
+      <!-- FORM DE CADASTRO -->
+      <div class='cadastro' style="display:none">
+        <form>
+          <h2>Crie sua conta</h2>
+          <div class="label-float">
+            <input type="text" id="nome" autocomplete="disabled" onblur="validar_nome()">
+            <label id="labelNome" for="nome">Nome</label>
+          </div>
+          <div class="label-float">
+            <input type="password" id="senha">
+            <label id="labelSenha" for="senha">Senha</label>
+          </div>
+          <div class="label-float">
+            <input type="password" id="confirmSenha">
+            <label id="labelConfirmSenha" for="confirmSenha">Repetir senha</label>
+          </div>
+          <div class="label-float">
+            <input type="email" id="email" onblur="validar_email(form.email)">
+            <label id="labelEmail" for="email">E-mail</label>
+          </div>
+          <div class='botao'>
+            <button type="submit" onsubmit="validar_tudo()">Cadastrar</button>
+          </div>
+          <div class='botao'>
+            <hr>
+          </div>
+          <div>
+            <p>Já tem uma conta? Faça <a id="link1" href="#">LOGIN</a></p>
+        </form>
+      </div>
+    </div>
+      <!-- FORM DE LOGIN  -->
+    <div class='login' style="display: block;">
+      <form id="form">
+        <h1>Minha to-do list</h1>
+        <h2 id="H2">Login</h2>
+        <div class='label-float'>
+          <input type='email' id='email#'>
+          <label id='emailLabel' for='usuario'>Email</label>
         </div>
-
-        <div class="label-float">
-          <input type="password" id="senha">
-          <label id="labelSenha" for="senha">Senha</label>
+        <div class='label-float'>
+          <input type='password' id='senha#'>
+          <label id='senhaLabel' for='senha'>Senha</label>
         </div>
-
-        <div class="label-float">
-          <input type="password" id="confirmSenha">
-          <label id="labelConfirmSenha" for="confirmSenha">Repetir senha</label>
-        </div>
-
-        <div class="label-float">
-          <input type="email" id="email" onblur="validar_email(form.email)">
-          <label id="labelEmail" for="email">E-mail</label>
-        </div>
-
-        <div class='botao'>
-          <button type="submit" onsubmit="validar_tudo()">Cadastrar</button>
-        </div>
-
-        <div class='botao'>
-          <hr>
-        </div>
-
-        <div>
-          <p> Já tem uma conta? Faça <a id="link1" href="#">LOGIN</a>
-          </p>
-
       </form>
-    </div>
-  </div>
-
-  <div class='login' style="display: block;">
-    <form id="form">
-      <h1>Minha to-do list</h1>
-      <h2 id="H2">Login</h2>
-
-      <div class='label-float'>
-        <input type='email' id='email#'>
-        <label id='emailLabel' for='usuario'>Email</label>
+      <div class='botao'>
+        <button id="botaoo">Entrar</button>
       </div>
-
-      <div class='label-float'>
-        <input type='password' id='senha#'>
-        <label id='senhaLabel' for='senha'>Senha</label>
+      <div class='botao'>
+        <hr>
       </div>
-    </form>
-    <div class='botao'>
-      <button id="botaoo">Entrar</button>
+      <p> Não tem uma conta? <a id="link2" href="#">CADASTRE-SE</a></p>
     </div>
-
-    <div class='botao'>
-      <hr>
-    </div>
-
-    <p> Não tem uma conta? <a id="link2" href="#">CADASTRE-SE</a>
-    </p>
-
-  </div>
-  </div>
-  <script src="./js/script-cadastro.js"></script>
-  <script src="./js/script-login.js"></script>
-</body>
+    <!-- SCRIPT -->
+    <script src="./js/script-cadastro.js"></script>
+    <script src="./js/script-login.js"></script>
+  </body>
+</html>
