@@ -33,7 +33,7 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
   listaUser = JSON.parse(localStorage.getItem('listaUser'))
 
   if(email.value == "ADMIN" && senha.value == "DEMONSTRACAO"){
-    window.location.href = 'http://127.0.0.1:5500/to-do-list-demo.html'
+    window.location.href = 'https://dh-front-end-02-checkpoint-02.github.io/Projeto-To-Do/to-do-list.html'
   } else {
    
     if(email.value == null || email.value == "" || senha.value == null || senha.value == ""){
@@ -59,7 +59,7 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
     
         localStorage.setItem('token', token)
         localStorage.setItem('userLogado', JSON.stringify(userValid))
-        window.location.href = 'https://github.com/DH-Front-End-02-Checkpoint-02/Projeto-To-Do/to-do-list.html'
+        window.location.href = 'https://dh-front-end-02-checkpoint-02.github.io/Projeto-To-Do/to-do-list.html'
         document.getElementById('form').reset()
     
       } else {
