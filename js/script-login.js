@@ -44,7 +44,6 @@ document.getElementById("botaoo").addEventListener('click', function entrar() {
           email: item.email,
           senha: item.senha
         }
-  
       }
     })
   
