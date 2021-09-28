@@ -1,61 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style-tarefas.css">
-    <link rel="stylesheet" href="./css/modal.css">
-    <!-- GOOGLE FONTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
-        rel="stylesheet">
-    <title>Minha to-do-list</title>
-</head>
-
-<body>
-    <header>
-        <!-- NAVBAR -->
-        <nav>
-            <div class="minha-lista">
-                <a class="home" href="#">To-do list</a>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn"><img class="icone-user" src="./img/user.svg" alt="ícone do usuário"><i
-                        class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a id="btsair" href="#">Sair</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/style-tarefas.css">
+        <link rel="stylesheet" href="./css/modal.css">
+        <!-- GOOGLE FONTES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <title>Minha to-do-list</title>
+    </head>
+    <body>
+        <header>
+            <!-- NAVBAR -->
+            <nav>
+                <div class="minha-lista">
+                    <a class="home" href="#">To-do list</a>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <!-- FORMULÁRIO DE CRIAÇÃO DE TAREFAS -->
-        <form class="form-tarefa">
-            <h1>Minha to-do list</h1>
-            <h2 id="logado"></h2>
-            <label>Data de criação:
-                <div id="data-criacao" class="inputs"></div>
-            </label>
-            <label for="data-limite">Data limite:
-                <input type="date" id="data-limite" class="inputs" required>
-            </label>
-            <label for="tarefa" id="label-tarefa">Tarefa:</label>
-            <textarea name="tarefa" id="txtTarefa" cols="30" rows="10" minlength="10" maxlength="100" required></textarea>
-            <button type="submit" id="add-tarefa">Adicionar tarefa</button>
-        </form>
-         <!-- CARD DE TAREFAS -->
-         <ul id="lista"></ul>
-
-    </main>
-
-    <script src="js/script-tarefas.js"></script>
-    <!-- <script src="./js/modal.js"></script> -->
-</body>
-
+                <div class="dropdown">
+                    <button class="dropbtn"><img class="icone-user" src="./img/user.svg" alt="ícone do usuário"><i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a id="btsair" href="#">Sair</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <!-- FORMULÁRIO DE CRIAÇÃO DE TAREFAS -->
+            <form class="form-tarefa">
+                <h1>Minha to-do list</h1>
+                <h2 id="logado"></h2>
+                <label>Data de criação:
+                    <div id="data-criacao" class="inputs"></div>
+                </label>
+                <label for="data-limite">Data limite:
+                    <input type="date" id="data-limite" class="inputs" required>
+                </label>
+                <label for="tarefa" id="label-tarefa">Tarefa:</label>
+                    <textarea name="tarefa" id="txtTarefa" cols="30" rows="10" minlength="10" maxlength="100" required></textarea>
+                <button type="submit" id="add-tarefa">Adicionar tarefa</button>
+            </form>
+            <!-- CARD DE TAREFAS -->
+            <ul id="lista"></ul>
+        </main>
+        <!-- SCRIPT -->
+        <script src="js/script-tarefas.js"></script>
+    </body>
 </html>

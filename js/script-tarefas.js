@@ -71,7 +71,7 @@ sairbtn.addEventListener('click',()=>{
 
 
 //-----------------------------------------------------------------------//
-//Setando Datas (Pedro)
+//Setando Datas
 
 
 // 1) Data de criação de tarefa (não é uma validação propriamente dita): Data deverá sempre ser a data presente
@@ -189,7 +189,7 @@ const resgatarCards = _ => {
         margin-top: .1rem;
         width: 1rem;
       `
-    
+
       let cardLixeira = document.createElement("img");
       cardLixeira.setAttribute("src", "./img/remover.svg");
       cardLixeira.setAttribute("alt", "ícone de lixeira para excluir a tarefa");
