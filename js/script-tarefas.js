@@ -291,9 +291,9 @@ function gerarCard() {
         let cardTxtTarefa = document.createElement("h3");
     
         cardID.insertAdjacentText("afterbegin", (idTarefa));
-        cardDataCriacao.insertAdjacentText("afterbegin", "Criado em:" + dataCriacao.textContent);
-        cardPrazo.insertAdjacentText("afterbegin", "Prazo:" + cardDataLimite);
-        cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa:" + txtTarefa.value);
+        cardDataCriacao.insertAdjacentText("afterbegin", "Criado em: " + dataCriacao.textContent);
+        cardPrazo.insertAdjacentText("afterbegin", "Prazo: " + cardDataLimite);
+        cardTxtTarefa.insertAdjacentText("afterbegin", "Tarefa: " + txtTarefa.value);
        
         let cardDiv = document.createElement("div");
         cardDiv.classList.add("icones-cards");
