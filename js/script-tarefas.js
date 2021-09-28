@@ -4,7 +4,7 @@ let sairbtn = document.getElementById('btsair');
 
 sairbtn.addEventListener('click',()=>{
   localStorage.removeItem('token');
-  window.location.href = 'https://dh-front-end-02-checkpoint-02.github.io/Projeto-To-Do/';
+  window.location.href = 'http://127.0.0.1:5500/index.html';
 });
 
 //-----------------------------------------------------------------------//
@@ -21,7 +21,7 @@ logado.innerHTML = `${usuarioLogado.nome}`;
 if(localStorage.getItem('token') == null){
   setTimeout(() => {
     alert('Você precisa está logado para acessar essa pagina')
-    window.location.href = 'https://dh-front-end-02-checkpoint-02.github.io/Projeto-To-Do/'; 
+    window.location.href = 'http://127.0.0.1:5500/index.html'; 
   }, 5000);
 };
 
@@ -113,35 +113,6 @@ formTarefa.onsubmit = (evt) => {
   gerarCard();
 }
 
-/* FELIPE - 27/09 -  Atualizando cards do usuario na tela */
-window.onload = _ => {
-  let getObj = JSON.parse(localStorage.getItem('listaUser'));
-  //Verifica se há tarefas a serem resgatadas e renderiza
-  if(getObj[0].tarefas.at(-1).indice != null) {
-    /* Atualiza indice de IDs de cards quando o ultimo card da memoria for valido*/
-    idTarefa = getObj[0].tarefas.at(-1).indice;
-    /* Recuperar cards da memoria se o ultimo card da memoria tiver id valido */
-    resgatarCards();
-  }
-}
-
-let dtLimite;
-
-/* Ajustando data inicial do calentádio */
-let today = new Date()
-
-let year = today.getFullYear();
-let month = today.getMonth()+1;
-let day = today.getDate();
-
-/* Adiciona 0 na frente de numeros menores que 10*/
-day < 10 ? day = '0'+ day : null;
-month < 10 ? month = '0'+ month : null;
-
-/* Definindo valor do input do calendario para a data atual */
-dtLimite = `${day}/${month}/${year}`;
-
-
 //Incluindo comsumo da API todos
 //pegando informações
 fetch('https://jsonplaceholder.typicode.com/todos')
@@ -165,6 +136,35 @@ fetch('https://jsonplaceholder.typicode.com/todos')
       localStorage.setItem('listaUser', JSON.stringify(getObj));
   }
 });
+
+/* FELIPE - 27/09 -  Atualizando cards do usuario na tela */
+window.onload = _ => {
+
+  let getObj = JSON.parse(localStorage.getItem('listaUser'));
+  //Verifica se há tarefas a serem resgatadas e renderiza
+  if(getObj[0].tarefas[getObj[0].tarefas.length - 1].indice != null) {
+    /* Atualiza indice de IDs de cards quando o ultimo card da memoria for valido*/
+    idTarefa = getObj[0].tarefas[getObj[0].tarefas.length - 1].indice;
+    /* Recuperar cards da memoria se o ultimo card da memoria tiver id valido */
+    resgatarCards();
+  }
+}
+
+let dtLimite;
+
+/* Ajustando data inicial do calentádio */
+let today = new Date()
+
+let year = today.getFullYear();
+let month = today.getMonth()+1;
+let day = today.getDate();
+
+/* Adiciona 0 na frente de numeros menores que 10*/
+day < 10 ? day = '0'+ day : null;
+month < 10 ? month = '0'+ month : null;
+
+/* Definindo valor do input do calendario para a data atual */
+dtLimite = `${day}/${month}/${year}`;
 
 /* FELIPE - 27/09 - Recuperando dados do localSorage e renderizando na tela */
 const resgatarCards = _ => {
@@ -231,16 +231,24 @@ const resgatarCards = _ => {
       //Disabilita cards com tarefas já feitas
       if(tarefa.situacao == true) {
         itemLista.classList.toggle("checked");
-        cardCheckbox.disabled=true;
+        cardCheckbox.checked=true;
       }
 
-      //Desabilita cards marcados
-      cardCheckbox.onclick = () => {
-      itemLista.classList.toggle("checked");
+        //Desabilita cards marcados
+        cardCheckbox.onclick = () => {
+        itemLista.classList.toggle("checked");
+        let getObj= JSON.parse(localStorage.getItem('listaUser'))
+          if(getObj[0].tarefas[tarefa.id].situacao=false) {
+            getObj[0].tarefas[tarefa.id].situacao=true;
+            localStorage.setItem('listaUser', JSON.stringify(getObj));
+          } else {
+            getObj[0].tarefas[tarefa.id].situacao=false;
+            localStorage.setItem('listaUser', JSON.stringify(getObj));
+          }
       }
     });
   }
-  criarModal(id);
+  criarModal(tarefa.id);
 }
 
 
@@ -255,6 +263,7 @@ function gerarCard() {
     getObj[0].tarefas.at(-1).dtCriacao=dataCriacao.textContent;
     getObj[0].tarefas.at(-1).dtLimite=cardDataLimite;
     getObj[0].tarefas.at(-1).tarefa=txtTarefa.value;
+    getObj[0].tarefas.at(-1).situacao=false;
     getObj[0].tarefas.at(-1).indice=idTarefa+1;
 
     localStorage.setItem('listaUser', JSON.stringify(getObj));
@@ -267,6 +276,7 @@ function gerarCard() {
       dtCriacao: dataCriacao.textContent,
       dtLimite: cardDataLimite,
       tarefa: txtTarefa.value,
+      situacao: false,
       indice: idTarefa+1
     }
     
@@ -334,7 +344,19 @@ function gerarCard() {
         itemLista.appendChild(cardTxtTarefa);
         itemLista.appendChild(cardDiv);
         lista.appendChild(itemLista);
-    
+/*     
+        cardCheckbox.onclick = () => {
+          itemLista.classList.toggle("checked");
+          let getObj= JSON.parse(localStorage.getItem('listaUser'))
+            if(getObj[0].tarefas[tarefa.id].situacao=false) {
+              getObj[0].tarefas[tarefa.id].situacao=true;
+              localStorage.setItem('listaUser', JSON.stringify(getObj));
+            } else {
+              getObj[0].tarefas[tarefa.id].situacao=false;
+              localStorage.setItem('listaUser', JSON.stringify(getObj));
+            }
+        } */
+
         cardCheckbox.onclick = () => {
           itemLista.classList.toggle("checked");
         }
